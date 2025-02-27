@@ -1,0 +1,35 @@
+.headerHead {
+  background-color: #d726c2;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  padding: 20px 20px 10px 20px;
+  z-index: 50;
+  backdrop-filter: blur(5px);
+  animation: adjust-header linear both;
+  animation-timeline: scroll();
+  animation-range: 0 200px;
+}
+@keyframes adjust-header {
+  to {
+    background: rgba(245, 178, 227, 0.3);
+    font-size: 16px;
+    /* height: 24px; */
+  }
+}
+
+/* .nav-link {
+  font-family: Montserrat, Roboto;
+   font-size: 20px;
+  line-height: 14px;
+  color: #c7d2dd;
+  background: none;
+  outline: none;
+  width: 100%; 
+} */
+.nav-link:focus {
+  color: #a21d6f;
+}
