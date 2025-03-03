@@ -59,7 +59,7 @@ const Footer = () => {
                     style={{ marginLeft: "-15px" }}
                   >
                     <MDBIcon icon="gem" className="me-3" />
-                    ЗооМагазин КСУ "Альянс"
+                    РО КСУ "Альянс"
                   </h5>
                   <h6>Ми працюємо для Вас за графіком :</h6>
                   <br />

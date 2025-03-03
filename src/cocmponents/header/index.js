@@ -6,6 +6,7 @@ import { push } from "connected-react-router";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import logo from "../../../src/logoHeder.png";
 import "./header.css";
+import LOGO from "../../images/CUU _Alians_ (1).svg";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -56,7 +57,8 @@ const Header = () => {
       <Container>
         <img src={logo} alt="" width="100" />
         <Link className="navbar-brand active" to="/">
-          Альянс
+          <img className="logoImg" src={LOGO} alt="Auction" />
+          {/* РО КСУ "Альянс" */}
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
