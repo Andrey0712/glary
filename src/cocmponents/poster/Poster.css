@@ -1,0 +1,179 @@
+/* .container {
+  width: 100%;
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
+  margin-right: 0;
+  margin-left: 0;
+} */
+
+.ciduAXdB7o34U {
+  display: flex;
+}
+@media (min-width: 768px) {
+  .ciduAXdB7o34U {
+    align-items: flex-end;
+  }
+  .ciduAXdB7o34U .row {
+    justify-content: flex-start;
+  }
+  .ciduAXdB7o34U .content-wrap {
+    padding: 1rem 3rem;
+  }
+}
+@media (max-width: 991px) and (min-width: 768px) {
+  .ciduAXdB7o34U .content-wrap {
+    min-width: 50%;
+  }
+}
+@media (max-width: 767px) {
+  .ciduAXdB7o34U {
+    -webkit-align-items: center;
+    align-items: flex-end;
+  }
+  .ciduAXdB7o34U .mbr-row {
+    -webkit-justify-content: center;
+    justify-content: center;
+  }
+  .ciduAXdB7o34U .content-wrap {
+    width: 100%;
+  }
+}
+.ciduAXdB7o34U .mbr-fallback-image.disabled {
+  display: none;
+}
+.ciduAXdB7o34U .mbr-fallback-image {
+  display: block;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  background-image: url("https://a.mobirise.com/app/themes/startm5/components/_images/background1.jpg");
+}
+.ciduAXdB7o34U .mbr-section-title,
+.ciduAXdB7o34U .mbr-section-subtitle {
+  margin-top: 200px;
+  text-align: center;
+  color: #ffc091;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: bold;
+}
+.ciduAXdB7o34U .mbr-text,
+.ciduAXdB7o34U .mbr-section-btn {
+  text-align: center;
+  font-family: cursive;
+  color: #ffd100;
+  font-style: italic;
+  font-size: larger;
+}
+.ciduAXdB7o34U .mbr-section-title {
+  color: #ffd100;
+}
+.ciduAXdB7o34U .mbr-section-subtitle {
+  color: #ffd100;
+}
+
+.app-component,
+.app-component .app-component-content,
+.app-component .app-component-content footer,
+.note-mbrStyle ul.dropdown-menu li {
+  position: relative;
+  margin-top: 0px;
+}
+.mbr-background-video-preview {
+  display: block;
+  background-size: cover;
+  background-position: center center;
+  background-image: url("https://img.youtube.com/vi/kv3ML8ckmj8/maxresdefault.jpg");
+}
+.mbr-video-foreground {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+.mbr-background-video-preview1 {
+  display: block;
+  unicode-bidi: isolate;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+}
+.mbr-background-video-preview2 {
+  display: block;
+  unicode-bidi: isolate;
+  background: rgb(0, 0, 0);
+  inset: 0px;
+}
+.mbr-background-video {
+  margin-top: 0px;
+  max-width: initial;
+  transition-property: opacity;
+  transition-duration: 1000ms;
+  pointer-events: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  transform: scale(1.2);
+  z-index: -1;
+}
+.mbr-overlay {
+  opacity: 0.5;
+  background-color: rgb(0, 0, 0);
+}
+.mbr-section-subtitle {
+  display: none;
+}
+
+/* .homeP {
+  position: relative;
+  flex-grow: 1;
+}
+
+.titleP {
+  font-weight: 900;
+  font-size: 119px;
+  line-height: 145px;
+  text-transform: uppercase;
+  color: var(--dark-sea);
+  text-align: center;
+}
+
+.productP {
+  position: relative;
+  padding-left: 42px;
+  display: flex;
+  align-items: stretch;
+  margin-top: 9px;
+}
+
+.subtitleP {
+  line-height: 20px;
+  text-transform: uppercase;
+  color: var(--sea);
+}
+
+.headP {
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 51px;
+  text-transform: uppercase;
+  color: var(--light);
+  max-width: 500px;
+  margin: 10px 0 24px 0;
+} 
+
+.imageP {
+  position: relative;
+  flex-grow: 1;
+  height: 250px;
+}*/

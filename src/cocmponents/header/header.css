@@ -36,8 +36,8 @@
     border-radius: 1.5rem;
     background: #ffffff;
     opacity: 1;
-    border-color: rgba(255, 255, 255, 0.8) !important;
-    background: rgba(255, 255, 255, 0.8) !important;
+    background: rgba(245, 178, 227, 0.3) !important;
+    background: rgba(245, 178, 227, 0.3) !important;
     backdrop-filter: blur(8px);
   }
 }
