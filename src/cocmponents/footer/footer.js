@@ -71,6 +71,36 @@ const Footer = () => {
 
                 <MDBCol md="2" lg="2" xl="2" className="mx-auto mb-4">
                   <h6 className="text-uppercase fw-bold mb-4">
+                    Корисні посиланя
+                  </h6>
+                  <p>
+                    <a href="https://rivne-ksu.com.ua//" className="text-reset">
+                      РО КСУ "Альянс"
+                    </a>
+                  </p>
+                  {/* <p>
+                    <a
+                      href="mailto:nashemistoart@gmail.com"
+                      className="text-reset"
+                    >
+                      Тех. підтримка
+                    </a>
+                  </p> */}
+                  <p>
+                    <a
+                      href={
+                        `${urlBackend}` + "BanerForecast/details_for_payment"
+                      }
+                      className="text-reset"
+                      target="_blank"
+                    >
+                      Реквізити для оплати
+                    </a>
+                  </p>
+                </MDBCol>
+
+                <MDBCol md="3" lg="2" xl="2" className="mx-auto mb-4">
+                  {/* <h6 className="text-uppercase fw-bold mb-4">
                     Наші пропозиції
                   </h6>
                   <p>
@@ -82,35 +112,7 @@ const Footer = () => {
                     <a href="/noMatch" className="text-reset">
                       Послуги
                     </a>
-                  </p>
-                </MDBCol>
-
-                <MDBCol md="3" lg="2" xl="2" className="mx-auto mb-4">
-                  <h6 className="text-uppercase fw-bold mb-4">
-                    Корисні посиланя
-                  </h6>
-                  <p>
-                    <a href="https://rivne-ksu.com.ua//" className="text-reset">
-                      РО КСУ "Альянс"
-                    </a>
-                  </p>
-                  <p>
-                    <a
-                      href="mailto:nashemistoart@gmail.com"
-                      className="text-reset"
-                    >
-                      Тех. підтримка
-                    </a>
-                  </p>
-                  <p>
-                    <a
-                      href={`${urlBackend}` + "api/product/details_for_payment"}
-                      className="text-reset"
-                      target="_blank"
-                    >
-                      Реквізити для оплати
-                    </a>
-                  </p>
+                  </p> */}
                 </MDBCol>
 
                 <MDBCol md="4" lg="3" xl="3" className="mx-auto mb-md-0 mb-4">

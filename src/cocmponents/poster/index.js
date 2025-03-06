@@ -35,7 +35,7 @@ const Poster = () => {
   return (
     <>
       <div className="container">
-        <div class="app-component-content">
+        <div className="app-component-content">
           <section
             className="ciduAXdB7o34U"
             // mbr-data-bg-video="this | fakeFilter uname__1 _params.bg.type _params.bg.value.url | toNULL"
@@ -127,7 +127,7 @@ const Poster = () => {
                     mbr-on-change-component-node="uname__48"
                     data-class-var="display-7"
                   >
-                    Присоединяйтесь к нам на выставке, где собаки - звезды шоу!
+                    Приєднуйтесь до нас на виставці, де собаки – зірки шоу!
                   </p>
                   <div
                     className="mbr-section-btn"
@@ -197,20 +197,6 @@ const Poster = () => {
                     >
                       <div className="item-wrapper">
                         <div className="card-box align-left">
-                          <div
-                            className="iconfont-wrapper mb-3"
-                            mbr-if="this | fakeFilter uname__42 _params.showIcon"
-                            data-app-remove-it="true"
-                            //style="display: none;"
-                          >
-                            <span
-                              className="mbr-iconfont mobi-mbri-idea mobi-mbri"
-                              mbr-media="uname__43"
-                              mbr-media-simple="true"
-                              mbr-on-click="uname__44"
-                              media-simple="true"
-                            ></span>
-                          </div>
                           <p
                             className="card-title mbr-fonts-style mb-3 display-1"
                             mbr-if="this | fakeFilter uname__47 _params.showTitle"
@@ -239,7 +225,7 @@ const Poster = () => {
                             mbr-on-change-component-node="uname__54"
                             data-class-var="display-7"
                           >
-                            Счастливые собаки
+                            Щасливі собаки
                           </p>
                           <div
                             className="mbr-section-btn mt-2 item-footer mt-2"
@@ -265,20 +251,6 @@ const Poster = () => {
                     >
                       <div className="item-wrapper">
                         <div className="card-box align-left">
-                          <div
-                            className="iconfont-wrapper mb-3"
-                            mbr-if="this | fakeFilter uname__62 _params.showIcon"
-                            data-app-remove-it="true"
-                            //style="display: none;"
-                          >
-                            <span
-                              className="mbr-iconfont mobi-mbri-growing-chart mobi-mbri"
-                              mbr-media="uname__63"
-                              mbr-media-simple="true"
-                              mbr-on-click="uname__64"
-                              media-simple="true"
-                            ></span>
-                          </div>
                           <p
                             className="card-title mbr-fonts-style mb-3 display-1"
                             mbr-if="this | fakeFilter uname__67 _params.showTitle"
@@ -307,7 +279,7 @@ const Poster = () => {
                             mbr-on-change-component-node="uname__74"
                             data-class-var="display-7"
                           >
-                            Счастливые владельцы
+                            Щасливі власники
                           </p>
                           <div
                             className="mbr-section-btn mt-2 item-footer mt-2"
@@ -333,20 +305,6 @@ const Poster = () => {
                     >
                       <div className="item-wrapper">
                         <div className="card-box align-left">
-                          <div
-                            class="iconfont-wrapper mb-3"
-                            mbr-if="this | fakeFilter uname__82 _params.showIcon"
-                            data-app-remove-it="true"
-                            //style="display: none;"
-                          >
-                            <span
-                              className="mbr-iconfont mobi-mbri-change-style mobi-mbri"
-                              mbr-media="uname__83"
-                              mbr-media-simple="true"
-                              mbr-on-click="uname__84"
-                              media-simple="true"
-                            ></span>
-                          </div>
                           <p
                             className="card-title mbr-fonts-style mb-3 display-1"
                             mbr-if="this | fakeFilter uname__87 _params.showTitle"
@@ -375,10 +333,10 @@ const Poster = () => {
                             mbr-on-change-component-node="uname__94"
                             data-class-var="display-7"
                           >
-                            Годовых выставок
+                            Річних вистовок
                           </p>
                           <div
-                            class="mbr-section-btn mt-2 item-footer mt-2"
+                            className="mbr-section-btn mt-2 item-footer mt-2"
                             mbr-if="this | fakeFilter uname__95 _params.showButtons"
                             data-toolbar="-mbrBtnMove,-mbrBtnAdd"
                             mbr-buttons="uname__98"

@@ -63,8 +63,8 @@ const Header = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto" onClick={() => setNavExpanded(false)}>
-            <Link className="nav-link" aria-current="page" to="/">
-              Головна
+            <Link className="nav-link" aria-current="page" to="/about">
+              Про нас
             </Link>
             <Link className="nav-link" aria-current="page" to="/noMatch">
               Реєстрація на виставку
