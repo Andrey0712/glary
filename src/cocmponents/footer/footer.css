@@ -41,6 +41,8 @@ a .title1::before {
   background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
 } */
 .footer {
+  /* width: 100vw;
+  margin-left: calc(50% - 50vw); */
   margin-top: 20px;
 }
 .bg-dark {

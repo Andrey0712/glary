@@ -67,7 +67,10 @@ const Header = () => {
               Про нас
             </Link>
             <Link className="nav-link" aria-current="page" to="/noMatch">
-              Реєстрація на виставку
+              Новини
+            </Link>
+            <Link className="nav-link" aria-current="page" to="/noMatch">
+              Реєстрація
             </Link>
             <Link className="nav-link" aria-current="page" to="/noMatch">
               Пітомніки
@@ -78,9 +81,9 @@ const Header = () => {
               <Link className="nav-link" to="/login">
                 Вхід
               </Link>
-              <Link className="nav-link" to="/register">
+              {/* <Link className="nav-link" to="/register">
                 Реєструватися
-              </Link>
+              </Link> */}
             </Nav>
           ) : (
             <Nav onClick={() => setNavExpanded(false)}>

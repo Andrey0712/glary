@@ -2,6 +2,7 @@ import React from "react";
 //import "../../Components/Houme/Home.css";
 //import BG from "../../images/marka.jpg";
 import "./About.css";
+import Footer from "../../cocmponents/footer/footer";
 
 const About = () => {
   return (
@@ -128,6 +129,7 @@ const About = () => {
                 </div>
               </div>
             </div>
+            <Footer />
           </section>
         </div>
       </div>

@@ -19,8 +19,8 @@ import { urlBackend } from "../../http_common";
 
 const Footer = () => {
   return (
-    <div className=" footer">
-      <div class="container-jastify">
+    <div className="footer">
+      <div className="container-jastify">
         <MDBFooter
           // style={{ backgroundColor: '#dfe0f5' }}
           color="white"

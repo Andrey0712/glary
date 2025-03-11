@@ -24,7 +24,7 @@ class DefaultLayout extends Component {
               ) : null;
             })}
           </Switch>
-          <Footer />
+          {/* <Footer /> */}
         </Suspense>
       </Layout>
     );

@@ -175,6 +175,7 @@ import { gapi } from "gapi-script";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./FormDemo.css";
+import { Link } from "react-router-dom";
 
 toast.configure();
 
@@ -396,23 +397,34 @@ const LoginPage = () => {
                 </div>
 
                 <Button type="submit" label="Вхід на сайт" className="mt-2" />
+
+                <h6 ref={titleRef} className="text-center">
+                  Якщо відсутній обліковий запис,
+                  <Link
+                    //className="col-3 mx-auto justify-md-end d-md-flex"
+                    //className="nav-link"
+                    to="/register"
+                  >
+                    перейдіть за посиланям
+                  </Link>
+                </h6>
               </form>
             </div>
           </div>
         </div>
-        {/* <hr />
-        <h3 ref={titleRef} className="text-center">
-          Вхід на сайт через Google
-        </h3>
 
-        <GoogleLogin
+        {/*  <hr /><h3 ref={titleRef} className="text-center">
+          Вхід на сайт через Google
+        </h3> */}
+
+        {/* <GoogleLogin
           className="col-3 mx-auto justify-md-end d-md-flex"
           clientId="523681892685-p9t6c2i45qb6p3qnpu6aom6lqdi9ln9r.apps.googleusercontent.com"
           buttonText="Login"
           onSuccess={responseGoogle}
           onFailure={responseGoogle}
           // cookiePolicy={'http://localhost:3000'}
-        /> */}
+        />  */}
       </div>
     </div>
   );
