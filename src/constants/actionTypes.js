@@ -1,7 +1,7 @@
-export const LOGIN = 'LOGIN';
-export const REGISTER = 'REGISTER';
-export const REGISTER_BEGIN = 'REGISTER_BEGIN';
-export const REGISTER_FAILED = 'REGISTER_FAILED';
+export const LOGIN = "LOGIN";
+export const REGISTER = "REGISTER";
+export const REGISTER_BEGIN = "REGISTER_BEGIN";
+export const REGISTER_FAILED = "REGISTER_FAILED";
 export const LOGOUT = "LOGOUT";
 export const SET_ROLE = "SET_ROLE";
 
@@ -9,6 +9,10 @@ export const PRODUCT_LIST = "PRODUCT_LIST";
 export const REGISTER_PRODUCTS = "REGISTER_PRODUCTS";
 export const UPDATE_PRODUCTS = "UPDATE_PRODUCTS";
 export const DELL_PRODUCTS = "DELL_PRODUCTS";
+
+export const RUNLINE_LIST = "RUNLINE_LIST";
+export const REGISTER_RUNLINE = "REGISTER_RUNLINE";
+export const DELL_RUNLINE = "DELL_RUNLINE";
 
 export const USERS = "USERS";
 

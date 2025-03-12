@@ -47,19 +47,92 @@
     min-height: 72px;
   }
 } */
-
-/* .nav-link {
-  font-family: Montserrat, Roboto;
-   font-size: 20px;
+.navbar-light .navbar-nav .nav-link {
+  color: rgba(67, 2, 2, 0.55);
+}
+@import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,500,600,700");
+.nav-link {
+  font-family: "Cormorant Garamond", serif;
+  /* font-family: "Meta", sans-serif; */
+  font-size: 24px;
+  font-style: normal;
   line-height: 14px;
-  color: #c7d2dd;
   background: none;
   outline: none;
-  width: 100%; 
-} */
-.nav-link:focus {
-  color: #a21d6f;
+  /* margin: auto;
+  font-size: 3.5rem;
+  font-weight: 300;
+  animation: lights 5s 750ms linear infinite; */
 }
+.nav-link:hover {
+  animation: shaking-button 0.5s ease-in-out;
+  color: #106ccd;
+}
+/* @keyframes lights {
+  0% {
+    color: hsl(230, 40%, 80%);
+    text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.2),
+      0 0 0.125em hsla(320, 100%, 60%, 0.3),
+      -1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+      1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+  }
+
+  30% {
+    color: hsl(230, 80%, 90%);
+    text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.5),
+      0 0 0.125em hsla(320, 100%, 60%, 0.5),
+      -0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+      0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+  }
+
+  40% {
+    color: hsl(230, 100%, 95%);
+    text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.5),
+      0 0 0.125em hsla(320, 100%, 90%, 0.5),
+      -0.25em -0.125em 0.125em hsla(40, 100%, 60%, 0.2),
+      0.25em 0.125em 0.125em hsla(200, 100%, 60%, 0.4);
+  }
+
+  70% {
+    color: hsl(230, 80%, 90%);
+    text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.5),
+      0 0 0.125em hsla(320, 100%, 60%, 0.5),
+      0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+      -0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+  }
+
+  100% {
+    color: hsl(230, 40%, 80%);
+    text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.2),
+      0 0 0.125em hsla(320, 100%, 60%, 0.3),
+      1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+      -1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+  }
+}*/
+@keyframes shaking-button {
+  0% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(8%);
+  }
+  40% {
+    transform: translateY(-3%);
+  }
+  60% {
+    transform: translateY(0);
+  }
+  80% {
+    transform: translateY(8%);
+  }
+  100% {
+    transform: translateY(-3%);
+  }
+}
+
+/* .nav-link:focus {
+  color: #a21d6f;
+} */
 .logoImg {
   width: 200px;
   height: 50px;
