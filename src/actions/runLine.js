@@ -17,7 +17,7 @@ export const registerRunLine = (model) => async (dispatch) => {
 export const getRunLine = () => async (dispatch) => {
   try {
     const { data } = await runlineService.get_listRunLine();
-    //console.log("prod", data);
+    console.log("prod", data);
     dispatch({
       type: RUNLINE_LIST,
       payload: data,

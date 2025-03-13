@@ -29,6 +29,7 @@ const RunLinePage = () => {
   const [loading, setLoading] = useState(true);
 
   const { list } = useSelector((state) => state.runLine);
+  console.log("del", list);
 
   useEffect(() => {
     try {
@@ -55,6 +56,7 @@ const RunLinePage = () => {
   //   };
 
   const confirmDelete = (runLine) => {
+    //console.log("del******", runLine.description);
     //const Productdel=product.id;
     //console.log("Server is bad register from", Productdel);
     setRunLine(runLine);
@@ -62,11 +64,11 @@ const RunLinePage = () => {
   };
 
   const deleteUser = (runLine) => {
-    console.log("del+++++++", runLine.id);
+    console.log("del+++++++", runLine.description);
     runlineService
       .del_RunLine({ runLine })
       .then((result) => {
-        console.log("del+++++++");
+        //console.log("del+++++++");
         setDeleteDialog(false);
         setRunLine(empty);
         toast.current.show({
@@ -128,13 +130,29 @@ const RunLinePage = () => {
       />
     </React.Fragment>
   );
+  const openNewRunLine = () => {
+    dispatch(push("/admin/RunLine"));
+  };
+
+  const leftToolbarTemplate = () => {
+    return (
+      <div className="toolbarLeft">
+        <Button
+          label="Бігуща строка"
+          icon="pi pi-plus"
+          className="p-button-success mr-2"
+          onClick={openNewRunLine}
+        />
+      </div>
+    );
+  };
 
   return (
     <div className="datatable-crud-demo">
       <Toast ref={toast} />
 
       <div className="card">
-        {/* <Toolbar className="mb-4" left={leftToolbarTemplate} ></Toolbar> */}
+        <Toolbar className="mb-4" left={leftToolbarTemplate}></Toolbar>
 
         <DataTable
           ref={dt}

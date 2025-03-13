@@ -27,11 +27,11 @@ const RunLine = () => {
   const [loading, setLoading] = useState(false);
 
   const onSubmitHandler = async (values) => {
-    console.log("onSubmitHandler", values);
-    console.log("errors", errors);
+    //console.log("onSubmitHandler", values);
+    //console.log("errors", errors);
     try {
       const formData = new FormData();
-      console.log("onSubmitHandler111", formData);
+      //console.log("onSubmitHandler111", formData);
       Object.entries(values).forEach(([key, value]) =>
         formData.append(key, value)
       );

@@ -1,16 +1,39 @@
-import React from "react";
+//import React from "react";
+import React, { useState, useEffect } from "react";
 //import "../../Components/Houme/Home.css";
 //import BG from "../../images/marka.jpg";
 import "./Poster.css";
 import "../../styles/variables.css";
 import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getRunLine } from "../../actions/runLine";
 
 const Poster = () => {
   const navigate = useHistory();
-
+  const dispatch = useDispatch();
+  //const list = useSelector((state) => state.runLine);
+  const [list] = useSelector((state) => state.runLine.list);
+  console.log("runline111", list.description);
+  console.log("runline222", list);
+  const [loading, setLoading] = useState(true);
   const goHome = () => {
     navigate.push("/noMatch");
   };
+
+  useEffect(() => {
+    try {
+      dispatch(getRunLine())
+        .then(() => {
+          setLoading(false);
+        })
+        .catch((ex) => {
+          setLoading(false);
+        });
+    } catch (error) {
+      setLoading(false);
+      console.log("Server is bad register from", error);
+    }
+  }, []);
 
   // return (
   //   <>
@@ -159,9 +182,12 @@ const Poster = () => {
         <div className="container">
           <div class="running-line-wrapper">
             <div class="running-line">
-              <span>Увага прийшли нові документи.</span>
-              <span>Хто чекає, зайдіть на вкладку НОВИНИ *</span>
-              <span>Відкрита реєстрація на виставку *</span>
+              {/* <span>Увага прийшли нові документи.</span>
+              <span>Хто чекає, зайдіть на вкладку НОВИНИ *</span> */}
+
+              <span>{list.description}</span>
+
+              {/* <span>Відкрита реєстрація на виставку *</span> */}
             </div>
           </div>
         </div>

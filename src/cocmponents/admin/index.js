@@ -31,11 +31,11 @@ const MainAdminPage = () => {
     name: "",
     image: null,
     description: "",
-    category: null,
-    price: 0,
-    quantity: 0,
-    rating: 0,
-    inventoryStatus: "У наявності",
+    // category: null,
+    // price: 0,
+    // quantity: 0,
+    // rating: 0,
+    // inventoryStatus: "У наявності",
   };
 
   // const [products, setProducts] = useState(null);
@@ -70,9 +70,9 @@ const MainAdminPage = () => {
   const openNew = () => {
     dispatch(push("/admin/RegisterProduct"));
   };
-  const openNewRunLine = () => {
-    dispatch(push("/admin/RunLine"));
-  };
+  // const openNewRunLine = () => {
+  //   dispatch(push("/admin/RunLine"));
+  // };
 
   const hideDeleteProductDialog = () => {
     setDeleteProductDialog(false);
@@ -92,12 +92,12 @@ const MainAdminPage = () => {
           className="p-button-success mr-2"
           onClick={openNew}
         />
-        <Button
+        {/* <Button
           label="Бігуща строка"
           icon="pi pi-plus"
           className="p-button-success mr-2"
           onClick={openNewRunLine}
-        />
+        /> */}
       </div>
     );
     // return (
@@ -114,9 +114,11 @@ const MainAdminPage = () => {
   };
 
   const imageBodyTemplate = (rowData) => {
+    console.log("foto", rowData);
     return (
       <img
         src={`${urlBackend}` + rowData.image}
+        //src={`http://localhost:5000` + rowData.image}
         onError={(e) =>
           (e.target.src =
             "https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png")
@@ -127,29 +129,29 @@ const MainAdminPage = () => {
     );
   };
 
-  const formatCurrency = (value) => {
-    return value.toLocaleString("ua-UA", {
-      style: "currency",
-      currency: "UAH",
-    });
-  };
-  const priceBodyTemplate = (rowData) => {
-    return formatCurrency(rowData.price);
-  };
+  // const formatCurrency = (value) => {
+  //   return value.toLocaleString("ua-UA", {
+  //     style: "currency",
+  //     currency: "UAH",
+  //   });
+  // };
+  // const priceBodyTemplate = (rowData) => {
+  //   return formatCurrency(rowData.price);
+  // };
 
-  const ratingBodyTemplate = (rowData) => {
-    return <Rating value={rowData.rating} readOnly cancel={false} />;
-  };
+  // const ratingBodyTemplate = (rowData) => {
+  //   return <Rating value={rowData.rating} readOnly cancel={false} />;
+  // };
 
-  const statusBodyTemplate = (rowData) => {
-    return (
-      <span
-        className={`product-badge status-${rowData.inventoryStatus.toLowerCase()}`}
-      >
-        {rowData.inventoryStatus}
-      </span>
-    );
-  };
+  // const statusBodyTemplate = (rowData) => {
+  //   return (
+  //     <span
+  //       className={`product-badge status-${rowData.inventoryStatus.toLowerCase()}`}
+  //     >
+  //       {rowData.inventoryStatus}
+  //     </span>
+  //   );
+  // };
 
   const confirmDeleteProduct = (product) => {
     const Productdel = product.id;
@@ -265,9 +267,9 @@ const MainAdminPage = () => {
           <Column
             field="description"
             header="Description"
-            style={{ minWidth: "16rem" }}
+            style={{ minWidth: "30rem" }}
           ></Column>
-          <Column
+          {/* <Column
             field="price"
             header="Price"
             body={priceBodyTemplate}
@@ -293,7 +295,7 @@ const MainAdminPage = () => {
             body={statusBodyTemplate}
             sortable
             style={{ minWidth: "8rem" }}
-          ></Column>
+          ></Column> */}
           <Column
             body={actionBodyTemplate}
             exportable={false}
