@@ -4,11 +4,11 @@ class ProductsService {
   get_list_prod() {
     return http.get("BanerForecast/listBaners");
   }
-  get_rahunok() {
-    return http.get("api/product/getfile");
-  }
+  // get_rahunok() {
+  //   return http.get("api/product/getfile");
+  // }
   registerProd(data) {
-    return http.post("api/product/add", data, {
+    return http.post("BanerForecast/addBaner", data, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
