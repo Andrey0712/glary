@@ -8,6 +8,7 @@ const RegisterProduct = React.lazy(() =>
 const EditProduct = React.lazy(() =>
   import("../cocmponents/admin/EditProduct")
 );
+const EditRun = React.lazy(() => import("../cocmponents/admin/EditRun"));
 const OdersPage = React.lazy(() => import("../cocmponents/admin/Oders"));
 const RunLine = React.lazy(() => import("../cocmponents/admin/RunLine"));
 const RunLinePage = React.lazy(() =>
@@ -59,6 +60,12 @@ const adminRoutes = [
     exact: true,
     name: "Редагувати товар",
     component: EditProduct,
+  },
+  {
+    path: "/admin/EditRun",
+    exact: true,
+    name: "Редагувати товар",
+    component: EditRun,
   },
   { path: "/admin", exact: true, name: "Головна", component: MainAdminPage },
 ];

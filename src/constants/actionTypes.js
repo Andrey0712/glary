@@ -13,6 +13,7 @@ export const DELL_PRODUCTS = "DELL_PRODUCTS";
 export const RUNLINE_LIST = "RUNLINE_LIST";
 export const REGISTER_RUNLINE = "REGISTER_RUNLINE";
 export const DELL_RUNLINE = "DELL_RUNLINE";
+export const UPDATE_RUNLINE = "UPDATE_RUNLINE";
 
 export const USERS = "USERS";
 

@@ -12,18 +12,47 @@ const Poster = () => {
   const navigate = useHistory();
   const dispatch = useDispatch();
   //const list = useSelector((state) => state.runLine);
-  const [list] = useSelector((state) => state.runLine.list);
-  console.log("runline111", list.description);
-  console.log("runline222", list);
+  const { list } = useSelector((state) => state.runLine);
+
+  //const [list] = useSelector((state) => state.runLine.list);
+  const [runline] = list.map((x) => x.description);
+  console.log("runline333", runline);
+  // const run = (list) => {
+  //   const runline = 0;
+  //   if (list == null) {
+  //     runline = [
+  //       "Відкрита реєстрація на виставку * Відкрита реєстрація на виставку * Відкрита реєстрація на виставку *",
+  //     ];
+  //   } else {
+  //     runline = [list.map((x) => x.description)];
+  //   }
+  //   console.log("runline333", runline);
+  // };
+
+  // if (runline == null) {
+  //   runline =
+  //     "Відкрита реєстрація на виставку * Відкрита реєстрація на виставку * Відкрита реєстрація на виставку *";
+  // }
+
   const [loading, setLoading] = useState(true);
   const goHome = () => {
     navigate.push("/noMatch");
   };
 
+  // let run = {
+  //   id: "1",
+  //   description:
+  //     "Відкрита реєстрація на виставку * Відкрита реєстрація на виставку * Відкрита реєстрація на виставку *",
+  // };
+  //console.log("runline333", run);
+
   useEffect(() => {
     try {
       dispatch(getRunLine())
         .then(() => {
+          // if (list == null) {
+          //   list = run;
+          // }
           setLoading(false);
         })
         .catch((ex) => {
@@ -35,55 +64,15 @@ const Poster = () => {
     }
   }, []);
 
-  // return (
-  //   <>
-  //     <section className="homeP">
-  //       <div className="titleP">BIG SALE 20%</div>
-  //       <div className="productP">
-  //         <div className="textP">
-  //           <div className="subtitleP">the bestseller of 2022</div>
-  //           <h1 className="headP">LENNON r2d2 with NVIDIA 5090 TI</h1>
-  //           <button className="button" onClick={goHome}>
-  //             Shop Now
-  //           </button>
-  //         </div>
-  //         {/* <div className="imageP">
-  //           <img src={BG} alt="no foto" />
-  //         </div> */}
-  //       </div>
-  //     </section>
-  //   </>
-  // );
-
   return (
     <>
       <div className="container">
         {/* <div className="app-component-content"> */}
-        <section
-          className="ciduAXdB7o34U"
-          // mbr-data-bg-video="this | fakeFilter uname__1 _params.bg.type _params.bg.value.url | toNULL"
-          // mbr-class2="this | fakeFilter uname__2 _params.fullScreen _params.bg.parallax"
-          // mbr-id="_anchor"
-          // data-bg-video="https://www.youtube.com/embed/kv3ML8ckmj8?autoplay=1&amp;loop=1&amp;playlist=kv3ML8ckmj8&amp;t=20&amp;mute=1&amp;playsinline=1&amp;controls=0&amp;showinfo=0&amp;autohide=1&amp;allowfullscreen=true&amp;mode=transparent"
-          // id="hero-16-uAXdB7o34U"
-          // data-rv-view="2"
-        >
-          {/* <div
-            className="mbr-background-video-preview"
-            //style='display: block; background-size: cover; background-position: center center; background-image: url("https://img.youtube.com/vi/kv3ML8ckmj8/maxresdefault.jpg");'
-          ></div> */}
+        <section className="ciduAXdB7o34U">
           <div
             className="mbr-background-video-preview1"
             //</section>style="overflow: hidden; position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
           >
-            {/* <div
-              className="mbr-background-video-preview2"
-              //style="background: rgb(0, 0, 0); inset: 0px;"
-            >
-              <div
-                className="mbr-video-foreground"
-                //style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; pointer-events: none; overflow: hidden;"
-              > */}
             <iframe
               className="mbr-background-video"
               //id="player"
@@ -104,14 +93,6 @@ const Poster = () => {
           {/* </div> */}
           {/* </div> */}
 
-          {/* <div
-              className="mbr-overlay"
-              mbr-if="this | fakeFilter uname__29 _params.overlay _params.bg.type"
-              mbr-opacity="this | fakeFilter uname__30 _params.overlayOpacity | toNULL"
-              mbr-bg-color="this | fakeFilter uname__31 _params.overlayColor | toNULL"
-              //style="opacity: 0.5; background-color: rgb(0, 0, 0);"
-            ></div> */}
-
           <div
             mbr-class2="this | fakeFilter uname__32 _params.fullWidth _params.fullWidth"
             className="container-fluid"
@@ -121,59 +102,13 @@ const Poster = () => {
                 mbr-class2="this | fakeFilter uname__33 _params.contentWidth"
                 className="content-wrap col-12 col-md-12"
               >
-                <h1
-                  className="mbr-section-title mbr-fonts-style mbr-white mb-4 display-1"
-                  // data-app-selector=".mbr-section-title"
-                  // mbr-if="this | fakeFilter uname__36 _params.showTitle"
-                  // mbr-class-var="uname__34"
-                  // mbr-on-change-theme-style="uname__35"
-                  // data-app-edit="content"
-                  // mbr-static-html="uname__37"
-                  // mbr-content-edit="uname__37"
-                  // data-app-placeholder="Введите Текст"
-                  // mbr-on-change-component-node="uname__38"
-                  // data-class-var="display-1"
-                >
+                <h1 className="mbr-section-title mbr-fonts-style mbr-white mb-4 display-1">
                   <b>РО КСУ "Альянс"</b>
                 </h1>
 
-                <p
-                  className="mbr-fonts-style mbr-text mbr-white mb-4 display-7"
-                  // mbr-if="this | fakeFilter uname__46 _params.showText"
-                  // data-app-selector=".mbr-text, .mbr-section-btn"
-                  // mbr-class-var="uname__44"
-                  // mbr-on-change-theme-style="uname__45"
-                  // data-app-edit="content"
-                  // mbr-static-html="uname__47"
-                  // mbr-content-edit="uname__47"
-                  // data-app-placeholder="Введите Текст"
-                  // mbr-on-change-component-node="uname__48"
-                  // data-class-var="display-7"
-                >
+                <p className="mbr-fonts-style mbr-text mbr-white mb-4 display-7">
                   Приєднуйтесь до нас на виставці, де собаки – зірки шоу!
                 </p>
-                {/* <div
-                  className="mbr-section-btn"
-                  mbr-if="this | fakeFilter uname__49 _params.showButtons"
-                  data-toolbar="-mbrBtnMove"
-                  mbr-buttons="uname__52"
-                  data-app-edit="buttons"
-                  mbr-static-html="uname__50"
-                  mbr-content-edit="uname__50"
-                  mbr-on-change-component-node="uname__51"
-                  mbr-class-var="uname__53"
-                  mbr-on-change-theme-style="uname__54"
-                  data-class-var="display-7"
-                > */}
-                {/* <a
-                      className="btn btn-white-outline display-7"
-                      href="https://mobiri.se"
-                      data-app-placeholder="Введите Текст"
-                      data-app-btn="true"
-                    >
-                      Узнать Больше
-                    </a> */}
-                {/* </div>  */}
               </div>
             </div>
           </div>
@@ -185,9 +120,16 @@ const Poster = () => {
               {/* <span>Увага прийшли нові документи.</span>
               <span>Хто чекає, зайдіть на вкладку НОВИНИ *</span> */}
 
-              <span>{list.description}</span>
-
-              {/* <span>Відкрита реєстрація на виставку *</span> */}
+              {<span>{runline}</span>}
+              {/* {<span>{run()}</span>} */}
+              {/* {<span>{list.map((x) => x.id)}</span>} */}
+              {/* users.map((user) => console.log(user.id + ' ' + user.name + ' ' + user.age)) */}
+              {/* {
+                <span>
+                  Відкрита реєстрація на виставку * Відкрита реєстрація на
+                  виставку *
+                </span>
+              } */}
             </div>
           </div>
         </div>

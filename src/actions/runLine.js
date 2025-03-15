@@ -1,4 +1,8 @@
-import { RUNLINE_LIST, REGISTER_RUNLINE } from "../constants/actionTypes";
+import {
+  RUNLINE_LIST,
+  REGISTER_RUNLINE,
+  UPDATE_RUNLINE,
+} from "../constants/actionTypes";
 import runlineService from "../services/runLine.service";
 
 export const registerRunLine = (model) => async (dispatch) => {
@@ -13,10 +17,15 @@ export const registerRunLine = (model) => async (dispatch) => {
     return Promise.reject(data);
   }
 };
-
+// let run = {
+//   id: "1",
+//   description:
+//     "Відкрита реєстрація на виставку * Відкрита реєстрація на виставку * Відкрита реєстрація на виставку *",
+// };
 export const getRunLine = () => async (dispatch) => {
   try {
     const { data } = await runlineService.get_listRunLine();
+
     console.log("prod", data);
     dispatch({
       type: RUNLINE_LIST,
@@ -25,6 +34,21 @@ export const getRunLine = () => async (dispatch) => {
     return Promise.resolve();
   } catch (err) {
     const { data } = err.response;
+    return Promise.reject(data);
+  }
+};
+
+export const editRunLine = (model) => async (dispatch) => {
+  try {
+    //console.log("result edit", model);
+    const result = await runlineService.editRunLine(model);
+    console.log("result edit", result);
+    dispatch({ type: UPDATE_RUNLINE });
+    return Promise.resolve(result);
+  } catch (err) {
+    console.log("ERROR------------");
+    const { data } = err.response;
+
     return Promise.reject(data);
   }
 };

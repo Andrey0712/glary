@@ -50,10 +50,10 @@ const RunLinePage = () => {
     setDeleteDialog(false);
   };
 
-  //   const editProduct = (product) => {
-  //     console.log("edit", product);
-  //     dispatch(push(`/admin/EditProduct?id=${product.id}`));
-  //   };
+  const editProduct = (product) => {
+    console.log("edit", product);
+    dispatch(push(`/admin/EditRun?id=${product.id}`));
+  };
 
   const confirmDelete = (runLine) => {
     //console.log("del******", runLine.description);
@@ -86,11 +86,11 @@ const RunLinePage = () => {
   const actionBodyTemplate = (rowData) => {
     return (
       <React.Fragment>
-        {/* <Button
+        <Button
           icon="pi pi-pencil"
           className="p-button-rounded p-button-success mr-2"
           onClick={() => editProduct(rowData)}
-        /> */}
+        />
         <Button
           icon="pi pi-trash"
           className="p-button-rounded p-button-warning"
