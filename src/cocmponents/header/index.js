@@ -55,11 +55,14 @@ const Header = () => {
       //   class="navbar navbar-light" style="background-color: #e3f2fd;"
     >
       <Container>
-        <img src={logo} alt="" width="100" />
-        <Link className="navbar-brand active" to="/">
-          <img className="logoImg" src={LOGO} alt="Auction" />
-          {/* РО КСУ "Альянс" */}
+        <img src={logo} alt="" width="80" />
+        <Link className="navbar-logo" to="/">
+          РMО КСУ "Альянс"
         </Link>
+        {/* <Link className="navbar-brand active" to="/">
+          <img className="logoImg" src={LOGO} alt="Auction" />
+           РMО КСУ "Альянс" 
+        </Link> */}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto" onClick={() => setNavExpanded(false)}>
@@ -71,7 +74,7 @@ const Header = () => {
             >
               Про нас
             </Link>
-            <Link className="nav-link" aria-current="page" to="/noMatch">
+            <Link className="nav-link" aria-current="page" to="/news">
               Новини
             </Link>
             <Link className="nav-link" aria-current="page" to="/noMatch">

@@ -7,7 +7,7 @@
   padding: 0.5rem 0.6rem;
   flex-wrap: nowrap;
   align-items: center;
-  padding: 20px 20px 10px 20px;
+  padding: 10px 20px 10px 20px;
   z-index: 50;
   backdrop-filter: blur(5px);
   animation: adjust-header linear both;
@@ -18,6 +18,66 @@
   background-color: #ffffff;
   box-shadow: 0 30px 60px 0 rgba(27, 31, 10, 0.08);
 }
+@font-face {
+  src: url("https://www.axis-praxis.org/fonts/webfonts/MetaVariableDemo-Set.woff2")
+    format("woff2");
+  font-family: "Meta";
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #8357eb;
+  width: 100vw;
+  height: 100vh;
+} */
+
+.navbar-logo {
+  transition: all 0.5s;
+  -webkit-text-stroke: 4px #ef9b60;
+  font-variation-settings: "wght" 900, "ital" 1;
+  font-size: 2rem;
+  text-align: center;
+  color: transparent;
+  font-family: "Meta", sans-serif;
+  text-shadow: 3px 3px 3px #07bccc, 3px 3px 0px #e601c0, 4px 4px 4px #e9019a,
+    4.5px 4.5px 0px #f40468, 8.5px 8.5px 4px #482896;
+  cursor: pointer;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  text-decoration: none;
+}
+
+.navbar-logo:hover {
+  font-variation-settings: "wght" 100, "ital" 0;
+  text-shadow: none;
+}
+/* .navbar-brand {
+  font-family: "Arial", sans-serif;
+  font-size: 2rem;
+  color: #fff;
+  text-shadow: 0 0 5px #ff005e, 0 0 10px #ff005e, 0 0 20px #ff005e,
+    0 0 40px #ff005e, 0 0 80px #ff005e;
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px #ff005e, 0 0 10px #ff005e, 0 0 20px #ff005e,
+      0 0 40px #ff005e, 0 0 80px #ff005e;
+  }
+  100% {
+    text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 40px #00d4ff,
+      0 0 80px #00d4ff, 0 0 160px #00d4ff;
+  }
+} */
+
 @keyframes adjust-header {
   to {
     background: rgba(245, 178, 227, 0.3);
