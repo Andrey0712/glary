@@ -81,7 +81,7 @@ const Header = () => {
               Реєстрація
             </Link>
             <Link className="nav-link" aria-current="page" to="/noMatch">
-              Пітомніки
+              Розплідники
             </Link>
           </Nav>
           {!auth.isAuth ? (

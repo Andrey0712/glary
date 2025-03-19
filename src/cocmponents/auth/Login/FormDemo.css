@@ -1,20 +1,145 @@
 .form-demo .card {
-    min-width: 450px;
+  min-width: 450px;
 }
 .form-demo .card form {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 .form-demo .card .field {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 @media screen and (max-width: 960px) {
-    .form-demo .card {
-        width: 80%;
-    }
+  .form-demo .card {
+    width: 80%;
+  }
 }
 @media screen and (max-width: 640px) {
-    .form-demo .card {
-        width: 100%;
-        min-width: 0;
-    }
+  .form-demo .card {
+    width: 100%;
+    min-width: 0;
+  }
+}
+form > * {
+  display: block;
+  margin: 5px auto;
+}
+input[type="text"],
+input[type="e-mail"],
+input[type="password"],
+input[type="email"] {
+  width: 232px;
+  outline: 0;
+  border: 0px solid;
+  border-radius: 6px;
+  text-align: center;
+  padding: 10px;
+  color: black;
+  transition: 0.25s;
+}
+input[type="text"]:focus,
+input[type="e-mail"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+  width: 310px;
+}
+
+.submit {
+  width: 110px;
+  outline: 0;
+  border: 0px solid;
+  border-radius: 12px;
+  text-align: center;
+  padding: 10px;
+  color: black;
+  transition: 0.25s;
+  cursor: pointer;
+  background: #5166c0;
+}
+.submit:hover {
+  background: #2ecc71;
+}
+.wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+.wrapper > * {
+  text-align: center;
+}
+
+.main {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100vw;
+  min-height: 100vh;
+  /* background:#34495e; */
+}
+.login {
+  /* float: left;
+  width: 50%; */
+  width: 100%;
+  min-height: 100vh;
+  background: url("https://r.mobirisesite.com/789666/assets/images/photo-1517443191895-202c31142ccd.jpeg")
+    no-repeat;
+  /* background: url("https://unsplash.com/photos/nvFpb_MMRj8/download?force=true")
+    no-repeat; */
+  background-size: cover;
+  border-radius: 20px;
+}
+/* .register {
+  float: right;
+  width: 50%;
+  
+  min-height: 100vh;
+  background: url("https://unsplash.com/photos/keqdnDale3M/download?force=true")
+    no-repeat;
+  background-size: cover;
+  border-radius: 20px;
+} */
+
+.login {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.login form {
+  background-color: #2c3e50;
+  width: 350px;
+  padding: 20px;
+  min-height: 250px;
+  border-radius: 20px;
+  text-align: center;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  transition: 0.26s;
+  margin-bottom: 2rem;
+}
+.login form:hover {
+  background-color: #2c3e50a3;
+}
+h1 {
+  font-family: "Montserrat;";
+  font-weight: 900;
+  color: white;
+}
+
+h1 span {
+  color: orange;
+}
+
+@media all and (max-width: 800px) {
+  .wrapper {
+    flex-flow: column;
+  }
+  .main {
+    flex-flow: column;
+  }
+  .login,
+  .register {
+    width: 100%;
+  }
 }

@@ -167,15 +167,16 @@ import { Dialog } from "primereact/dialog";
 import { Divider } from "primereact/divider";
 import { classNames } from "primereact/utils";
 import { useDispatch } from "react-redux";
-import { LoginUser, isRole, GoogleLoginUser } from "../../../actions/auth";
+import { LoginUser, isRole } from "../../../actions/auth";
 import jwt from "jsonwebtoken";
 import { push } from "connected-react-router";
-import GoogleLogin from "react-google-login";
+// import GoogleLogin from "react-google-login";
 import { gapi } from "gapi-script";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./FormDemo.css";
 import { Link } from "react-router-dom";
+// import Footer from "../../../cocmponents/footer/footer";
 
 toast.configure();
 
@@ -196,7 +197,7 @@ const LoginPage = () => {
       let errors = {};
 
       if (!data.email) {
-        errors.email = "Email is required.";
+        errors.email = "Заповніть поле";
       } else if (
         !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(data.email)
       ) {
@@ -204,9 +205,9 @@ const LoginPage = () => {
       }
 
       if (!data.password) {
-        errors.password = "Password is required.";
+        errors.password = "Заповніть поле.";
       } else if (!/[A-Z0-9]$/i.test(data.password)) {
-        errors.password = "Некоректний пароль";
+        errors.password = "Некоректний пароль. qwert9";
       }
 
       return errors;
@@ -255,28 +256,28 @@ const LoginPage = () => {
     gapi.load("client:auth2", start);
   }, []);
 
-  const responseGoogle = (response) => {
-    console.log(response);
-    let data = {
-      provider: "Google",
-      token: response.tokenId,
-    };
-    try {
-      dispatch(GoogleLoginUser(data))
-        .then((result) => {
-          toast.warn("Авторизація успішна", {
-            position: toast.POSITION.BOTTOM_RIGHT,
-            autoClose: 5000,
-          });
-          dispatch(push("/"));
-        })
-        .catch((ex) => {
-          console.log("exception: ", ex);
-        });
-    } catch (error) {
-      console.log("Server is bad register from", error);
-    }
-  };
+  // const responseGoogle = (response) => {
+  //   console.log(response);
+  //   let data = {
+  //     provider: "Google",
+  //     token: response.tokenId,
+  //   };
+  //   try {
+  //     dispatch(GoogleLoginUser(data))
+  //       .then((result) => {
+  //         toast.warn("Авторизація успішна", {
+  //           position: toast.POSITION.BOTTOM_RIGHT,
+  //           autoClose: 5000,
+  //         });
+  //         dispatch(push("/"));
+  //       })
+  //       .catch((ex) => {
+  //         console.log("exception: ", ex);
+  //       });
+  //   } catch (error) {
+  //     console.log("Server is bad register from", error);
+  //   }
+  // };
 
   const isFormFieldValid = (name) =>
     !!(formik.touched[name] && formik.errors[name]);
@@ -298,7 +299,7 @@ const LoginPage = () => {
       />
     </div>
   );
-  //const passwordHeader = <h6>Pick a password</h6>;
+  const passwordHeader = <h6>Pick a password</h6>;
   const passwordFooter = (
     <React.Fragment>
       <Divider />
@@ -311,121 +312,130 @@ const LoginPage = () => {
   );
 
   return (
-    <div className="row">
-      <div className="offset-md-3 col-md-5">
-        <br />
-        <br />
-        <div className="form-demo">
-          <Dialog
-            visible={showMessage}
-            onHide={() => setShowMessage(false)}
-            position="top"
-            footer={dialogFooter}
-            showHeader={false}
-            breakpoints={{ "960px": "80vw" }}
-            style={{ width: "30vw" }}
-          >
-            <div className="flex align-items-center flex-column pt-6 px-3">
-              <i
-                className="pi pi-undo"
-                style={{ fontSize: "5rem", color: "var(--blue-500)" }}
-              ></i>
-              <div className="flex justify-content-center">
-                <br />
-                <h4>Помилка авторизациї!</h4>
-                <br />
-                <h5>
-                  Якщо Ви не зареєстрованний користувач - перейдіть на вкладку
-                  реєстрація!
-                </h5>
-              </div>
-            </div>
-          </Dialog>
-
+    // <div className="row">
+    //   <div className="offset-md-3 col-md-5">
+    <div class="login">
+      {/* <div className="form-demo"> */}
+      <Dialog
+        visible={showMessage}
+        onHide={() => setShowMessage(false)}
+        position="center"
+        footer={dialogFooter}
+        showHeader={false}
+        breakpoints={{ "960px": "80vw" }}
+        style={{ width: "30vw" }}
+      >
+        <div className="flex align-items-center flex-column pt-6 px-3">
+          <i
+            className="pi pi-undo"
+            style={{ fontSize: "5rem", color: "var(--blue-500)" }}
+          ></i>
           <div className="flex justify-content-center">
-            <div className="card">
-              <h2 className="text-center">Авторизація</h2>
-              <form onSubmit={formik.handleSubmit} className="p-fluid">
-                <div className="field">
-                  <span className="p-float-label p-input-icon-right">
-                    <i className="pi pi-envelope" />
-                    <InputText
-                      id="email"
-                      name="email"
-                      value={formik.values.email}
-                      onChange={formik.handleChange}
-                      className={classNames({
-                        "p-invalid": isFormFieldValid("email"),
-                      })}
-                    />
-                    <label
-                      htmlFor="email"
-                      className={classNames({
-                        "p-error": isFormFieldValid("email"),
-                      })}
-                    >
-                      Email*
-                    </label>
-                  </span>
-                  {getFormErrorMessage("email")}
-                </div>
-
-                <div className="field">
-                  <span className="p-float-label">
-                    <Password
-                      id="password"
-                      name="password"
-                      value={formik.values.password}
-                      onChange={formik.handleChange}
-                      toggleMask
-                      className={classNames({
-                        "p-invalid": isFormFieldValid("password"),
-                      })}
-                      //header={passwordHeader}
-                      footer={passwordFooter}
-                    />
-                    <label
-                      htmlFor="password"
-                      className={classNames({
-                        "p-error": isFormFieldValid("password"),
-                      })}
-                    >
-                      Пароль*
-                    </label>
-                  </span>
-                  {getFormErrorMessage("password")}
-                </div>
-
-                <Button type="submit" label="Вхід на сайт" className="mt-2" />
-
-                <h6 ref={titleRef} className="text-center">
-                  Якщо відсутній обліковий запис,
-                  <Link
-                    //className="col-3 mx-auto justify-md-end d-md-flex"
-                    //className="nav-link"
-                    to="/register"
-                  >
-                    перейдіть за посиланям
-                  </Link>
-                </h6>
-              </form>
-            </div>
+            <br />
+            <h4>Помилка авторизациї!</h4>
+            <br />
+            <h5>
+              Якщо Ви не зареєстрованний користувач - перейдіть на вкладку
+              реєстрація!
+            </h5>
           </div>
         </div>
+      </Dialog>
+      {/* <div className="flex justify-content-center">
+            <div className="card"> */}
+      <form onSubmit={formik.handleSubmit} className="form-cont">
+        <h1 ref={titleRef}>
+          Log<span>!</span>n
+        </h1>
+        {invalid && invalid.length > 0 && (
+          <div className="alert alert-danger">
+            <ul>
+              {invalid.map((text, index) => {
+                return <li key={index}>{text}</li>;
+              })}
+            </ul>
+          </div>
+        )}
+        {/* <h2 className="text-center">Авторизація</h2>
+               <form onSubmit={formik.handleSubmit} className="p-fluid">  */}
 
-        {/*  <hr /><h3 ref={titleRef} className="text-center">
-          Вхід на сайт через Google
-        </h3> */}
+        <div className="field">
+          <span className="p-float-label p-input-icon-right">
+            <i className="pi pi-envelope" />
+            <InputText
+              id="email"
+              placeholder="e-mail"
+              name="email"
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              className={classNames({
+                "p-invalid": isFormFieldValid("email"),
+              })}
+            />
+            {/* <label
+              htmlFor="email"
+              className={classNames({
+                "p-error": isFormFieldValid("email"),
+              })}
+            >
+              Email*
+            </label> */}
+          </span>
+          {getFormErrorMessage("email")}
+        </div>
 
-        {/* <GoogleLogin
-          className="col-3 mx-auto justify-md-end d-md-flex"
-          clientId="523681892685-p9t6c2i45qb6p3qnpu6aom6lqdi9ln9r.apps.googleusercontent.com"
-          buttonText="Login"
-          onSuccess={responseGoogle}
-          onFailure={responseGoogle}
-          // cookiePolicy={'http://localhost:3000'}
-        />  */}
-      </div>
+        <div className="field">
+          <span className="p-float-label">
+            <Password
+              id="password"
+              placeholder="Пароль"
+              name="password"
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              toggleMask
+              className={classNames({
+                "p-invalid": isFormFieldValid("password"),
+              })}
+              //header={passwordHeader}
+              //footer={passwordFooter}
+            />
+            {/* <label
+              htmlFor="password"
+              className={classNames({
+                "p-error": isFormFieldValid("password"),
+              })}
+            >
+              Пароль*
+            </label> */}
+          </span>
+          {getFormErrorMessage("password")}
+        </div>
+
+        {/* <Button type="submit" label="Вхід на сайт" className="mt-2" /> */}
+        <button type="submit" className="submit">
+          Авторизація
+        </button>
+
+        <h6
+          ref={titleRef}
+          //className="text-center"
+        >
+          Якщо відсутній обліковий запис,
+          <Link
+            //className="col-3 mx-auto justify-md-end d-md-flex"
+            //className="nav-link"
+
+            to="/register"
+          >
+            перейдіть за посиланям
+          </Link>
+        </h6>
+      </form>
+      {/* </div>
+          </div> */}
+      {/* </div> */}
+      {/* </div> */}
+      //{" "}
     </div>
   );
 };

@@ -88,12 +88,11 @@ const Poster = () => {
               //src="http://www.youtube.com/embed/kv3ML8ckmj8?autoplay=1&amp;loop=1&amp;&amp;playlist=kv3ML8ckmj8;"
               //src="https://www.youtube.com/embed/kv3ML8ckmj8?autoplay=1&amp;mute=1&amp;loop=1&amp;controls=0&amp;enablejsapi=1&amp;allowfullscreen=true&amp;showinfo=0&amp;html5=1&amp;version=3&amp;playerapiid=iframe_YTP_1624972482514&amp;widget_referrer=https%3A%2F%2Fa.mobirise.com%2F&amp;widgetid=1"
               src="https://www.youtube.com/embed/uYJQIKAVBw8?autoplay=1&amp;loop=1&amp;playlist=uYJQIKAVBw8&amp;t=20&amp;mute=1&amp;playsinline=1&amp;controls=0&amp;showinfo=0&amp;autohide=1&amp;allowfullscreen=true&amp;mode=transparent"
-              id="hero-16-ur0jvB7rF5"
+              // id="hero-16-ur0jvB7rF5"
             >
-              // style="display: block; background-size: cover;
+              {/* style="display: block; background-size: cover;
               background-position: center center; background-image:
-              url(&quot;https://img.youtube.com/vi/uYJQIKAVBw8/maxresdefault.jpg&quot;);">
-              >
+              url(&quot;https://img.youtube.com/vi/uYJQIKAVBw8/maxresdefault.jpg&quot;);" */}
             </iframe>
           </div>
           {/* </div> */}
@@ -109,7 +108,7 @@ const Poster = () => {
                 className="content-wrap col-12 col-md-12"
               >
                 <h1 className="mbr-section-title mbr-fonts-style mbr-white mb-4 display-1">
-                  <b>РО КСУ "Альянс"</b>
+                  <b>РМО КСУ "Альянс"</b>
                 </h1>
 
                 <p className="mbr-fonts-style mbr-text mbr-white mb-4 display-7">
