@@ -35,9 +35,9 @@ const Poster = () => {
   // }
 
   const [loading, setLoading] = useState(true);
-  const goHome = () => {
-    navigate.push("/noMatch");
-  };
+  // const goHome = () => {
+  //   navigate.push("/noMatch");
+  // };
 
   // let run = {
   //   id: "1",

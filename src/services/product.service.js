@@ -23,10 +23,10 @@ class ProductsService {
     });
   }
 
-  get_list_prod_search(data) {
-    //console.log("hello", data);
-    return http.get("api/product/listBySearch?name=" + data.product);
-  }
+  // get_list_prod_search(data) {
+  //   //console.log("hello", data);
+  //   return http.get("api/product/listBySearch?name=" + data.product);
+  // }
   // get_list_prod_category(data) {
   //     console.log("hello", data);
   //     return http.post("api/product/listByCatecory", data, {
@@ -35,10 +35,10 @@ class ProductsService {
   //         }
   //     });
   // }
-  get_list_prod_category(data) {
-    //console.log("category", data.product);
-    return http.get("api/product/listByCatecory?name=" + data.product);
-  }
+  // get_list_prod_category(data) {
+  //   //console.log("category", data.product);
+  //   return http.get("api/product/listByCatecory?name=" + data.product);
+  // }
 
   del_Prod(data) {
     //console.log("service", data.product.id);

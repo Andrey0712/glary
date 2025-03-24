@@ -366,6 +366,7 @@ const LoginPage = () => {
               id="email"
               placeholder="e-mail"
               name="email"
+              type="email"
               value={formik.values.email}
               onChange={formik.handleChange}
               className={classNames({

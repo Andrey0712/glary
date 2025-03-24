@@ -1,48 +1,29 @@
-.form-demo .card {
-  min-width: 450px;
-}
-.form-demo .card form {
-  margin-top: 2rem;
-}
-.form-demo .card .field {
-  margin-bottom: 1.5rem;
-}
-@media screen and (max-width: 960px) {
-  .form-demo .card {
-    width: 80%;
-  }
-}
-@media screen and (max-width: 640px) {
-  .form-demo .card {
-    width: 100%;
-    min-width: 0;
-  }
-}
 form > * {
   display: block;
   margin: 5px auto;
 }
 input[type="text"],
-input[type="email"],
-input[type="password"]
-/* input[type="email"]  */ {
-  width: 232px;
+input[type="e-mail"],
+input[type="password"],
+input[type="email"] {
+  width: 200px;
   outline: 0;
   border: 0px solid;
-  border-radius: 6px;
+  border-radius: 12px;
   text-align: center;
   padding: 10px;
   color: black;
   transition: 0.25s;
 }
 input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus {
+input[type="e-mail"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
   width: 310px;
 }
 
 .submit {
-  width: 110px;
+  width: 100px;
   outline: 0;
   border: 0px solid;
   border-radius: 12px;
@@ -73,51 +54,52 @@ input[type="password"]:focus {
   min-height: 100vh;
   /* background:#34495e; */
 }
-.login {
-  /* float: left;
+
+.register {
+  /* float: right;
   width: 50%; */
   width: 100%;
   min-height: 100vh;
-  background: url("https://r.mobirisesite.com/789666/assets/images/photo-1517443191895-202c31142ccd.jpeg")
+  background: url("https://r.mobirisesite.com/789666/assets/images/photo-1550206574-42cfa61e2a9d.jpeg")
     no-repeat;
-  /* background: url("https://unsplash.com/photos/nvFpb_MMRj8/download?force=true")
+  /* background: url("https://r.mobirisesite.com/1136395/assets/images/photo-1587300003388-59208cc962cb.jpeg")
+    no-repeat; */
+  /* background: url("https://unsplash.com/photos/keqdnDale3M/download?force=true")
     no-repeat; */
   background-size: cover;
   border-radius: 20px;
 }
-/* .register {
-  float: right;
-  width: 50%;
-  
-  min-height: 100vh;
-  background: url("https://unsplash.com/photos/keqdnDale3M/download?force=true")
-    no-repeat;
-  background-size: cover;
-  border-radius: 20px;
-} */
 
-.login {
+.register {
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
+  align-items: left;
+  padding-left: 2rem;
+  /* margin-left: 10rem; */
 }
 
-.login form {
+.register form {
   background-color: #2c3e50;
   width: 350px;
-  padding: 20px;
+  /* padding: 20px; */
   min-height: 250px;
   border-radius: 20px;
   text-align: center;
   display: flex;
   flex-flow: column;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
+  align-items: left;
+  /* padding-left: 2rem; */
   transition: 0.26s;
   margin-bottom: 2rem;
+  margin-top: 2rem;
 }
-.login form:hover {
+
+.register,
+.register form:hover {
   background-color: #2c3e50a3;
 }
 h1 {

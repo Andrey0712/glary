@@ -17,6 +17,13 @@ export const UPDATE_RUNLINE = "UPDATE_RUNLINE";
 
 export const USERS = "USERS";
 
+export const REGISTER_SHOW = "REGISTER_SHOW";
+// export const REGISTER_BEGIN_SHOW = "REGISTER_BEGIN_SHOW";
+// export const REGISTER_FAILED_SHOW = "REGISTER_FAILED_SHOW";
+export const LIST_SHOW = "LIST_SHOW";
+export const UPDATE_SHOW = "UPDATE_SHOW";
+export const DELL_ITEM_SHOW = "DELL_ITEM_SHOW";
+
 export const CART_ADD_PRODUCT = "CART_ADD_PRODUCT";
 export const CART_CLEAR = "CART_CLEAR";
 export const CART_LOAD_PRODUCT = "CART_LOAD_PRODUCT";

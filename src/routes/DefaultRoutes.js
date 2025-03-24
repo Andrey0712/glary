@@ -8,13 +8,18 @@ const RegisterPage = React.lazy(() => import("../cocmponents/auth/Register"));
 const NoMatch = React.lazy(() => import("../cocmponents/NoMatch"));
 const About = React.lazy(() => import("../cocmponents/about"));
 const News = React.lazy(() => import("../cocmponents/news"));
-//const RegisterProduct = React.lazy(() => import("../cocmponents/admin/RegisterProduct"));
+const RegisterShow = React.lazy(() => import("../cocmponents/show"));
 
 const defaultRoutes = [
   { path: "/noMatch", exact: true, component: NoMatch },
   { path: "/about", exact: true, component: About },
   { path: "/news", exact: true, component: News },
-  //{ path: '/RegisterProd', exact: true, name: 'Додати лот', component: RegisterProduct  },
+  {
+    path: "/RegisterShow",
+    exact: true,
+    name: "Реєстрація на виставку",
+    component: RegisterShow,
+  },
   { path: "/", exact: true, name: "Головна", component: HomePage },
   //{ path: '/cart', exact: true, component: CartDialog  },
   { path: "/login", exact: true, name: "Вхід", component: LoginPage },

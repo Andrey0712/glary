@@ -77,7 +77,7 @@ const Header = () => {
             <Link className="nav-link" aria-current="page" to="/news">
               Новини
             </Link>
-            <Link className="nav-link" aria-current="page" to="/noMatch">
+            <Link className="nav-link" aria-current="page" to="/RegisterShow">
               Реєстрація
             </Link>
             <Link className="nav-link" aria-current="page" to="/noMatch">
