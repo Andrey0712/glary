@@ -49,7 +49,7 @@ export const getShowSearch = (model) => async (dispatch) => {
 //         return Promise.reject(data);
 //     }
 // }
-export const RegisterShow = (model) => async (dispatch) => {
+export const RegisterShowDog = (model) => async (dispatch) => {
   try {
     const result = await showService.registerShow(model);
     console.log("register reuslt", result);

@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import validate from "./validation";
 import { useSelector } from "react-redux";
 import MyPhotoInput from "../../common/MyPhotoInput";
-import { RegisterUser, GoogleLoginUser } from "../../../actions/auth";
+import { RegisterUser } from "../../../actions/auth";
 import EclipseWidget from "../../common/louding";
 import jwt from "jsonwebtoken";
 import { push } from "connected-react-router";

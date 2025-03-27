@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { RegisterProd } from "../../../actions/RegisterProduct";
 import SelectInput from "../../common/MySelectField";
-
+import MyTextarea from "../../common/MyTextarea";
 toast.configure();
 
 const RegisterProduct = () => {
@@ -115,11 +115,12 @@ const RegisterProduct = () => {
                         id="price"
                         type="text" /> */}
 
-            <MyTextInput
+            <MyTextarea
               label="Опис"
               name="description"
               id="description"
-              type="text"
+              type="textarea"
+              rows="5"
             />
 
             {/* <MyTextInput

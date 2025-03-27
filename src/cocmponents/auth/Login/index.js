@@ -176,6 +176,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./FormDemo.css";
 import { Link } from "react-router-dom";
+
 // import Footer from "../../../cocmponents/footer/footer";
 
 toast.configure();
@@ -191,6 +192,7 @@ const LoginPage = () => {
     initialValues: {
       email: "",
       password: "",
+      radio: "",
     },
 
     validate: (data) => {
@@ -216,7 +218,7 @@ const LoginPage = () => {
     onSubmit: (data) => {
       try {
         setFormData(data);
-
+        console.log("data: ", data);
         dispatch(LoginUser(data))
           .then((result) => {
             let user = jwt.decode(result);
@@ -312,10 +314,7 @@ const LoginPage = () => {
   );
 
   return (
-    // <div className="row">
-    //   <div className="offset-md-3 col-md-5">
     <div class="login">
-      {/* <div className="form-demo"> */}
       <Dialog
         visible={showMessage}
         onHide={() => setShowMessage(false)}
@@ -358,7 +357,6 @@ const LoginPage = () => {
         )}
         {/* <h2 className="text-center">Авторизація</h2>
                <form onSubmit={formik.handleSubmit} className="p-fluid">  */}
-
         <div className="field">
           <span className="p-float-label p-input-icon-right">
             <i className="pi pi-envelope" />
@@ -384,7 +382,6 @@ const LoginPage = () => {
           </span>
           {getFormErrorMessage("email")}
         </div>
-
         <div className="field">
           <span className="p-float-label">
             <Password
@@ -411,12 +408,39 @@ const LoginPage = () => {
           </span>
           {getFormErrorMessage("password")}
         </div>
+        {/* <div className="field">
+          <span className="p-float-label"> */}
+        {/* <div className="flex align-items-center">
+          <input
+            type="radio"
+            className="radio"
+            name="radio"
+            value="shom1111"
+            id="radio"
+            onChange={formik.handleChange}
+            checked={formik.values.radio === "shom1111"}
+          />
+          <label htmlFor="ingredient1" className="ml-2">
+            Cheese
+          </label>
+          <input
+            type="radio"
+            className="radio"
+            name="radio"
+            value="shom222"
+            id="radio"
+            onChange={formik.handleChange}
+            checked={formik.values.radio === "shom222"}
+          />
+          <label htmlFor="ingredient1" className="ml-2">
+            Cheese222
+          </label>
+        </div> */}
 
         {/* <Button type="submit" label="Вхід на сайт" className="mt-2" /> */}
         <button type="submit" className="submit">
           Авторизація
         </button>
-
         <h6
           ref={titleRef}
           //className="text-center"
@@ -432,11 +456,6 @@ const LoginPage = () => {
           </Link>
         </h6>
       </form>
-      {/* </div>
-          </div> */}
-      {/* </div> */}
-      {/* </div> */}
-      //{" "}
     </div>
   );
 };

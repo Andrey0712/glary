@@ -8,6 +8,7 @@ function SelectInput({ label, ...props }) {
   const options = props.children.map((option) => ({
     value: option.props.value,
     label: option.props.children,
+    // placeholder:option.props.children,
   }));
 
   const onChange = ({ value }) => {
@@ -20,6 +21,7 @@ function SelectInput({ label, ...props }) {
         {label}
       </label>
       <Select
+        // defaultValue={label}
         defaultValue={options.find((option) => option.value === field.value)}
         options={options}
         onChange={onChange}
