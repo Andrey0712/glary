@@ -6,15 +6,27 @@ const validate = () => {
       .email("Не коректно вказана пошта")
       .required("Вкажіть пошту"),
     phone: Yup.string().required("Вкажіть телефон"),
-    owner: Yup.string().required("Вкажіть прізвище"),
-    address: Yup.string().required("Вкажіть адресу"),
-    password: Yup.string()
-      .required("Вкажіть пароль.")
-      .min(5, "Пароль має містить мінімум 5 символів.")
-      .matches(/[a-zA-Z]/, "Пароль має містить латинські символи."),
-    confirmPassword: Yup.string()
-      .oneOf([Yup.ref("password"), null], "Пароль має співпадаи ")
-      .required("Confirm Password is required"),
+    owner: Yup.string().required("Вкажіть П.І.Б. власника"),
+    adress: Yup.string().required("Вкажіть адресу"),
+    nameDog: Yup.string().required("Вкажіть кличку собаки"),
+    color: Yup.string().required("Вкажіть окрас "),
+    breed: Yup.string().required("Вкажіть породу"),
+    pedigree: Yup.string().required("Вкажіть номер родоводу"),
+    chip: Yup.string().required("Вкажіть чіпу або тату"),
+    breeder: Yup.string().required("Вкажіть П.І.Б. заводчика"),
+    father: Yup.string().required("Вкажіть кличку, № родоводу батька "),
+    mather: Yup.string().required("Вкажіть кличку, № родоводу батька"),
   });
 };
 export default validate;
+// showId: null,
+// sexId: null,
+
+// startPhoto1: null,
+// startPhoto2: null,
+// startPhoto3: null,
+// startPhoto4: null,
+// startPhoto5: null,
+// startPhoto6: null,
+// classId: null,
+// date: new Date(),

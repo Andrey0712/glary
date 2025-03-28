@@ -20,23 +20,34 @@ import SelectInput from "../common/MySelectField";
 import { DEFAULT_BREAKPOINTS } from "react-bootstrap/esm/ThemeProvider";
 import { MultiSelect } from "primereact/multiselect";
 import { RadioButton } from "primereact/radiobutton";
-// import { Checkbox } from "primereact/checkbox";
-
-//initMDB({ Input, Ripple });
-
+import MyDatePicker from "../common/MyDatePicker";
+import MyTextarea from "../common/MyTextarea";
 toast.configure();
 
 const RegisterShow = () => {
   const initState = {
-    radio: "",
-    name: "",
-    startPhoto: null,
-    description: "",
+    showId: null,
+    sexId: null,
+    nameDog: "",
+    color: "",
+    startPhoto1: null,
+    startPhoto2: null,
+    startPhoto3: null,
+    startPhoto4: null,
+    startPhoto5: null,
+    startPhoto6: null,
+    breed: "",
     classId: null,
-    price: null,
-    quantity: null,
-    rating: null,
-    // setFieldValue,
+    date: new Date(),
+    pedigree: "",
+    chip: "",
+    father: "",
+    mather: "",
+    adress: "",
+    owner: "",
+    breeder: "",
+    phone: "",
+    email: "",
   };
 
   const dispatch = useDispatch();
@@ -116,89 +127,40 @@ const RegisterShow = () => {
                     className="card card-registration card-registration-2"
                     // style="border-radius: 15px;"
                   >
-                    <div className="card-body p-0">
-                      <div className="row g-0">
-                        <div className="col-lg-6">
-                          <div className="p-5">
-                            <h3
-                              className="fw-normal mb-5"
-                              // style="color: #4835d4;"
-                            >
-                              Дані Собаки
-                            </h3>
-
-                            {invalid && invalid.length > 0 && (
-                              <div className="alert alert-danger">
-                                <ul>
-                                  {invalid.map((text, index) => {
-                                    return <li key={index}>{text}</li>;
-                                  })}
-                                </ul>
-                              </div>
-                            )}
-                            <Formik
-                              innerRef={refFormik}
-                              initialValues={initState}
-                              //validationSchema={validate()}
-                              onSubmit={onSubmitHandler}
-                            >
-                              <Form>
-                                <div id="my-radio-group">Picked</div>
-                                <div
-                                  role="group"
-                                  aria-labelledby="my-radio-group"
+                    {invalid && invalid.length > 0 && (
+                      <div className="alert alert-danger">
+                        <ul>
+                          {invalid.map((text, index) => {
+                            return <li key={index}>{text}</li>;
+                          })}
+                        </ul>
+                      </div>
+                    )}
+                    <Formik
+                      innerRef={refFormik}
+                      initialValues={initState}
+                      validationSchema={validate()}
+                      onSubmit={onSubmitHandler}
+                    >
+                      <Form>
+                        {/* <div className="row"> */}
+                        <div className="card-body p-0">
+                          <div className="row g-0">
+                            <div className="col-lg-6">
+                              <div className="p-5">
+                                <h3
+                                  className="fw-normal "
+                                  // style="color: #4835d4;"
                                 >
-                                  <label>
-                                    <Field
-                                      type="radio"
-                                      name="radio"
-                                      value="One"
-                                    />
-                                    One
-                                  </label>
-                                  <label>
-                                    <Field
-                                      type="radio"
-                                      name="radio"
-                                      value="Two"
-                                    />
-                                    Two
-                                  </label>
-                                </div>
-                                {/* <div className="flex align-items-center">
-                                  <Field
-                                    type="calendar"
-                                    name="calendar"
-                                    value={date}
-                                    onChange={(e) => setDate(e.value)}
-                                  />
-                                </div> */}
+                                  Дані Собаки
+                                </h3>
 
-                                {/* <MyBoxField
-                        label="Назва товару"
-                        name="name"
-                        id="name"
-                        type="text" /> */}
-
-                                {/*<MyPhotoInput 
-                            refFormik={refFormik}
-                            field="startPhoto" />
-
-                    <MyTextInput
-                        label="Ціна"
-                        name="price"
-                        id="price"
-                        type="text" />
-
-                    <MyTextInput
-                        label="Опис"
-                        name="description"
-                        id="description"
-                        type="text" />
-
-                    */}
-                                {/* <div className="mb-4 pb-2">
-                                  <select data-mdb-select-init>
+                                {/* <div className="col-md-6 mb-4 pb-2"> */}
+                                <div data-mdb-input-init class="form-outline">
+                                  <SelectInput
+                                    name="classId"
+                                    label="Оберіть класс"
+                                  >
                                     {options.map((option) => (
                                       <option
                                         key={option.value}
@@ -207,110 +169,295 @@ const RegisterShow = () => {
                                         {option.label}
                                       </option>
                                     ))}
-                                  </select>
-                                </div> */}
-                                <SelectInput name="classId" label="Класс">
-                                  {options.map((option) => (
-                                    <option
-                                      key={option.value}
-                                      value={option.value}
+                                  </SelectInput>
+                                </div>
+                                {/* </div> */}
+                                {/* </div> */}
+
+                                <div className="col-md-12 mb-8 pb-2">
+                                  <div data-mdb-input-init class="form-outline">
+                                    <div id="my-radio-group">
+                                      Виберіть стать
+                                    </div>
+                                    <div
+                                      role="group"
+                                      aria-labelledby="my-radio-group"
                                     >
-                                      {option.label}
-                                    </option>
-                                  ))}
-                                </SelectInput>
-                                <MyTextInput
-                                  label="Кількість"
-                                  name="quantity"
-                                  id="quantity"
-                                  type="text"
-                                />
-                                <MyTextInput
-                                  label="Рейтинг"
-                                  name="rating"
-                                  id="rating"
-                                  type="text"
-                                />
+                                      <label>
+                                        <Field
+                                          type="radio"
+                                          name="sexId"
+                                          value="1"
+                                        />{" "}
+                                        Кобель
+                                      </label>
+                                      {"   "}
+                                      <label>
+                                        <Field
+                                          type="radio"
+                                          name="sexId"
+                                          value="2"
+                                        />{" "}
+                                        Сука
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="form-group pb-2">
+                                  <label>
+                                    Оберіть дату народження{" "}
+                                    <MyDatePicker
+                                      name="date"
+                                      //label="Оберіть дату народження"
+                                      //placeholder="This has disabled keyboard navigation"
+                                    />
+                                  </label>
+                                </div>
+
+                                <div className="col-md-10 mb-4 ">
+                                  <MyTextInput
+                                    label="Вкажіть назву породи"
+                                    name="breed"
+                                    id="breed"
+                                    type="text"
+                                  />
+                                </div>
+                                <div className="row">
+                                  <div className="col-md-6 mb-4 ">
+                                    <MyTextInput
+                                      label="Вкажіть окрас"
+                                      name="color"
+                                      id="color"
+                                      type="text"
+                                    />
+                                  </div>
+                                  <div className="col-md-6 mb-4 ">
+                                    <MyTextInput
+                                      label="Вкажіть кличку собаки"
+                                      name="nameDog"
+                                      id="nameDog"
+                                      type="text"
+                                    />
+                                  </div>
+                                </div>
+
+                                <div className="row">
+                                  <div className="col-md-6 mb-4 ">
+                                    <div className="form-white">
+                                      <MyTextInput
+                                        label="Вкажіть № родоводу"
+                                        name="pedigree"
+                                        id="pedigree"
+                                        type="text"
+                                      />
+                                    </div>
+                                  </div>
+                                  <div className="col-md-6 mb-4">
+                                    <div className="form-white">
+                                      <MyTextInput
+                                        label="Вкажіть чіп або тату №"
+                                        name="chip"
+                                        id="chip"
+                                        type="text"
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                                <div className="row">
+                                  <div className="col-md-4 mb-4 ">
+                                    <div className="form-white">
+                                      <MyPhotoInput
+                                        label="Додайте фото 1"
+                                        refFormik={refFormik}
+                                        field="startPhoto1"
+                                      />
+                                    </div>
+                                  </div>
+                                  <div className="col-md-4 mb-4">
+                                    <div className="form-white">
+                                      <MyPhotoInput
+                                        label="Додайте фото 2"
+                                        refFormik={refFormik}
+                                        field="startPhoto3"
+                                      />
+                                    </div>
+                                  </div>
+                                  <div className="col-md-4 mb-4">
+                                    <div className="form-white">
+                                      <MyPhotoInput
+                                        label="Додайте фото 3"
+                                        refFormik={refFormik}
+                                        field="startPhoto2"
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                                <div className="col-md-12 mb-4 ">
+                                  <MyTextInput
+                                    label="Батько: кличка, № родоводу"
+                                    name="breed"
+                                    id="breed"
+                                    type="text"
+                                  />
+                                </div>
+                                <div className="col-md-12 mb-4 ">
+                                  <MyTextInput
+                                    label="Мати: кличка, № родоводу"
+                                    name="color"
+                                    id="color"
+                                    type="text"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                            <div className="col-lg-6 bg-indigo text-white">
+                              <div className="p-5">
+                                <h3 className="fw-normal">Дані власника</h3>
+                                <div className="col-md-12 mb-8 pb-2">
+                                  <div data-mdb-input-init class="form-outline">
+                                    <div id="my-radio-group">
+                                      Виберіть виставку
+                                    </div>
+                                    <div
+                                      role="group"
+                                      aria-labelledby="my-radio-group"
+                                    >
+                                      <label>
+                                        <Field
+                                          type="radio"
+                                          name="showId"
+                                          value="1"
+                                        />{" "}
+                                        CAC-UA "Червона калина" монопородні
+                                        виставки: КЧК німецька вівчарка,
+                                        лабрадор ретрівер
+                                      </label>
+                                      <label>
+                                        <Field
+                                          type="radio"
+                                          name="showId"
+                                          value="2"
+                                        />{" "}
+                                        CACIB-FCI "Бурштиновий кубок"
+                                        монопородні виставки: вельш коргі
+                                        пемброк, вельш коргі кардіган
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div className="col-md-12 mb-4 ">
+                                  <MyTextInput
+                                    label="Заводчик"
+                                    name="breeder"
+                                    id="breeder"
+                                    type="text"
+                                  />
+                                </div>
+                                <div className="col-md-12 mb-4 ">
+                                  <MyTextInput
+                                    label="Власник"
+                                    name="owner"
+                                    id="owner"
+                                    type="text"
+                                  />
+                                </div>
+                                <div className="col-md-12 mb-4 ">
+                                  <MyTextarea
+                                    label="Адреса"
+                                    name="adress"
+                                    id="adress"
+                                    type="textarea"
+                                    rows="2"
+                                  />
+                                </div>
+                                <div className="row">
+                                  <div className="col-md-6 mb-4 ">
+                                    <div className="form-white">
+                                      <MyTextInput
+                                        label="Вкажіть телефон"
+                                        name="phone"
+                                        id="phone"
+                                        type="text"
+                                      />
+                                    </div>
+                                  </div>
+                                  <div className="col-md-6 mb-4">
+                                    <div className="form-white">
+                                      <MyTextInput
+                                        label="Вкажіть e-mail"
+                                        name="email"
+                                        id="email"
+                                        type="email"
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                                <div className="row">
+                                  <div className="col-md-4 mb-4 ">
+                                    <div className="form-white">
+                                      <MyPhotoInput
+                                        label="Квітанція фото 1"
+                                        refFormik={refFormik}
+                                        field="startPhoto4"
+                                      />
+                                    </div>
+                                  </div>
+                                  <div className="col-md-4 mb-4">
+                                    <div className="form-white">
+                                      <MyPhotoInput
+                                        label="Квітанція фото 2"
+                                        refFormik={refFormik}
+                                        field="startPhoto5"
+                                      />
+                                    </div>
+                                  </div>
+                                  <div className="col-md-4 mb-4">
+                                    <div className="form-white">
+                                      <MyPhotoInput
+                                        label="Квітанція фото 3"
+                                        refFormik={refFormik}
+                                        field="startPhoto6"
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+
+                                {/* <div className="form-check d-flex justify-content-start mb-4 pb-3">
+                                  <input
+                                    className="form-check-input me-3"
+                                    type="checkbox"
+                                    value=""
+                                    id="form2Example3c"
+                                  />
+                                  <label
+                                    className="form-check-label text-white"
+                                    for="form2Example3"
+                                  >
+                                    I do accept the{" "}
+                                    <a href="#!" class="text-white">
+                                      <u>Terms and Conditions</u>
+                                    </a>{" "}
+                                    of your site.
+                                  </label>
+                                </div> */}
                                 <div className="d-grid gap-2 d-md-flex justify-content-md-end">
                                   <button type="submit" className="submit">
                                     Реєстрація
                                   </button>
                                 </div>
-                              </Form>
-                            </Formik>
-
-                            <div className="mb-4 pb-2">
-                              <select data-mdb-select-init>
-                                {options.map((option) => (
-                                  <option
-                                    key={option.value}
-                                    value={option.value}
-                                  >
-                                    {option.label}
-                                  </option>
-                                ))}
-                              </select>
-                            </div>
-
-                            <div className="row">
-                              <div className="col-md-6 mb-4 pb-2">
-                                <div data-mdb-input-init class="form-outline">
-                                  <input
-                                    type="text"
-                                    id="form3Examplev2"
-                                    className="form-control form-control-lg"
-                                  />
-                                  <label
-                                    className="form-label"
-                                    for="form3Examplev2"
-                                  >
-                                    First name
-                                  </label>
-                                </div>
-                              </div>
-                              <div className="col-md-6 mb-4 pb-2">
-                                <div data-mdb-input-init class="form-outline">
-                                  <input
-                                    type="text"
-                                    id="form3Examplev3"
-                                    className="form-control form-control-lg"
-                                  />
-                                  <label
-                                    className="form-label"
-                                    for="form3Examplev3"
-                                  >
-                                    Last name
-                                  </label>
-                                </div>
                               </div>
                             </div>
+                          </div>
+                        </div>
+                        {/* <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <button type="submit" className="submit">
+                                  Реєстрація
+                                </button>
+                              </div> */}
+                      </Form>
+                    </Formik>
 
-                            <div className="mb-4 pb-2">
-                              <select data-mdb-select-init>
-                                <option value="1">Position</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                                <option value="4">Four</option>
-                              </select>
-                            </div>
-
-                            <div className="mb-4 pb-2">
-                              <div data-mdb-input-init class="form-outline">
-                                <input
-                                  type="text"
-                                  id="form3Examplev4"
-                                  className="form-control form-control-lg"
-                                />
-                                <label
-                                  className="form-label"
-                                  for="form3Examplev4"
-                                >
-                                  Position
-                                </label>
-                              </div>
-                            </div>
-
-                            <div className="row">
+                    {/* <div className="row">
                               <div className="col-md-6 mb-4 pb-2 mb-md-0 pb-md-0">
                                 <div data-mdb-input-init class="form-outline">
                                   <input
@@ -334,9 +481,9 @@ const RegisterShow = () => {
                                   <option value="4">Four</option>
                                 </select>
                               </div>
-                            </div>
-                          </div>
-                        </div>
+                            </div>*/}
+
+                    {/* </div>
                         <div className="col-lg-6 bg-indigo text-white">
                           <div className="p-5">
                             <h3 className="fw-normal mb-5">Contact Details</h3>
@@ -524,9 +671,7 @@ const RegisterShow = () => {
                               Register
                             </button>
                           </div>
-                        </div>
-                      </div>
-                    </div>
+                        </div> */}
                   </div>
                 </div>
               </div>

@@ -102,6 +102,33 @@ h1 span {
     width: 100%;
   }
 } */
+.submit {
+  margin-top: 3rem;
+  width: 110px;
+  outline: 0;
+  border: 0px solid;
+  border-radius: 12px;
+  text-align: center;
+  padding: 10px;
+  color: black;
+  transition: 0.25s;
+  cursor: pointer;
+  background: #f0da4c;
+}
+.submit:hover {
+  background: #2ecc71;
+}
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #ebe511;
+  background-clip: border-box;
+  border: 1px solid rgb(0 0 0 / 94%);
+  border-radius: 1rem;
+}
 
 @media (min-width: 1025px) {
   .h-custom {
@@ -130,9 +157,10 @@ h1 span {
 .card-registration .select-arrow {
   top: 13px;
 }
-/* .fw-normal {
-  color: #4835d4;
-} */
+.fw-normal {
+  text-align: center;
+  /* color: #4835d4; */
+}
 .gradient-custom-2 {
   /* fallback for old browsers */
   background: #a1c4fd;
