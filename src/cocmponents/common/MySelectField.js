@@ -28,7 +28,8 @@ function SelectInput({ label, ...props }) {
         onBlur={setTouched}
       />
       {meta.touched && meta.error ? (
-        <div className="form-text text-danger">{meta.error}</div>
+        //<div className="form-text text-danger">{meta.error}</div>
+        <div className="form-text text-danger">Оберіть значення...</div>
       ) : null}
     </div>
   );

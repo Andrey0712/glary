@@ -38,7 +38,8 @@ const RegisterShow = () => {
     startPhoto6: null,
     breed: "",
     classId: null,
-    date: new Date(),
+    //date: Date(),
+    date: "",
     pedigree: "",
     chip: "",
     father: "",
@@ -104,8 +105,8 @@ const RegisterShow = () => {
     { value: 7, label: "Клас чемпіонів 15 місяців" },
     { value: 8, label: "Клас ветеранів з 8 років" },
   ];
-  const [date, setDate] = useState(null);
-
+  // const [date, setDate] = useState(null);
+  const startRef = React.createRef();
   return (
     <div className="container">
       <div className="app-component-content">
@@ -208,12 +209,47 @@ const RegisterShow = () => {
                                     Оберіть дату народження{" "}
                                     <MyDatePicker
                                       name="date"
+                                      id="date"
+                                      type="string"
+                                      dateFormat="dd/mm/yy"
                                       //label="Оберіть дату народження"
                                       //placeholder="This has disabled keyboard navigation"
                                     />
                                   </label>
                                 </div>
+                                {/* <div className="col-md-10 mb-4 ">
+                                  <MyDatePicker
+                                    label="Вкажіть дату народженя"
+                                    name="date"
+                                    // ref={this.startRef}
+                                    autocomplete="off"
+                                    type="text"
+                                    aria-describedby="hs-date-hint"
+                                    id="date"
+                                  />
+                                  <div className="rvt-datepicker__icon">
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      width="16"
+                                      height="16"
+                                      viewBox="0 0 16 16"
+                                    >
+                                      <path
+                                        fill="currentColor"
+                                        d="M12.29,2H12V1a1,1,0,0,0-2,0V2H6V1A1,1,0,0,0,4,1V2H3.71A2.78,2.78,0,0,0,1,4.83v7.33A2.78,2.78,0,0,0,3.71,15h8.57A2.78,2.78,0,0,0,15,12.17V4.83A2.78,2.78,0,0,0,12.29,2ZM3.71,4H4V5H6V4h4V5h2V4h.29a.78.78,0,0,1,.71.83V7H3V4.83A.78.78,0,0,1,3.71,4Zm8.57,9H3.71A.78.78,0,0,1,3,12.17V9H13v3.17A.78.78,0,0,1,12.29,13Z"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div> */}
 
+                                {/* <div className="col-md-10 mb-4 ">
+                                  <MyTextInput
+                                    label="Вкажіть дату народженя"
+                                    name="date"
+                                    id="date"
+                                    type="text"
+                                  />
+                                </div> */}
                                 <div className="col-md-10 mb-4 ">
                                   <MyTextInput
                                     label="Вкажіть назву породи"
@@ -295,16 +331,16 @@ const RegisterShow = () => {
                                 <div className="col-md-12 mb-4 ">
                                   <MyTextInput
                                     label="Батько: кличка, № родоводу"
-                                    name="breed"
-                                    id="breed"
+                                    name="father"
+                                    id="father"
                                     type="text"
                                   />
                                 </div>
                                 <div className="col-md-12 mb-4 ">
                                   <MyTextInput
                                     label="Мати: кличка, № родоводу"
-                                    name="color"
-                                    id="color"
+                                    name="mather"
+                                    id="mather"
                                     type="text"
                                   />
                                 </div>

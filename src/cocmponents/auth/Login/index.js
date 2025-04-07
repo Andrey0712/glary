@@ -176,7 +176,8 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./FormDemo.css";
 import { Link } from "react-router-dom";
-
+import { Calendar } from "primereact/calendar";
+import { RegisterShowDog } from "../../../actions/show";
 // import Footer from "../../../cocmponents/footer/footer";
 
 toast.configure();
@@ -187,12 +188,14 @@ const LoginPage = () => {
   const dispatch = useDispatch();
   const [invalid, setInvalid] = useState([]);
   const titleRef = useRef();
+  // const [date, setDate] = useState(null);
 
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
-      radio: "",
+      // radio: "",
+      //date: "",
     },
 
     validate: (data) => {
@@ -220,6 +223,7 @@ const LoginPage = () => {
         setFormData(data);
         console.log("data: ", data);
         dispatch(LoginUser(data))
+          //dispatch(RegisterShowDog(data))
           .then((result) => {
             let user = jwt.decode(result);
             if (isRole(user, "admin")) {
@@ -408,6 +412,21 @@ const LoginPage = () => {
           </span>
           {getFormErrorMessage("password")}
         </div>
+        {/* <div className="field">
+          <span className="p-float-label">
+            <Calendar
+              name="date"
+              id="date"
+              type=" "
+              value={formik.values.date}
+              onChange={formik.handleChange}
+              placeholder="Дата народженя"
+              //locale={uk}
+              //onChange={(e) => setDate(e.value)}
+              dateFormat="dd/mm/yy"
+            />
+          </span>
+        </div> */}
         {/* <div className="field">
           <span className="p-float-label"> */}
         {/* <div className="flex align-items-center">

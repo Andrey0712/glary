@@ -15,18 +15,21 @@ const validate = () => {
     chip: Yup.string().required("Вкажіть чіпу або тату"),
     breeder: Yup.string().required("Вкажіть П.І.Б. заводчика"),
     father: Yup.string().required("Вкажіть кличку, № родоводу батька "),
-    mather: Yup.string().required("Вкажіть кличку, № родоводу батька"),
+    mather: Yup.string().required("Вкажіть кличку, № родоводу матері"),
+    classId: Yup.string()
+      .notOneOf(["0"], "Виберіть категорію")
+      .required("Оберіть клас"),
+    date: Yup.date()
+      .default(() => new Date())
+      .required("Оберіть дату народженя"),
+    sexId: Yup.string().required("Оберіть стать"),
+    showId: Yup.string().required("Оберіть виставку"),
+    startPhoto1: Yup.string().required("Додайте фото"),
+    startPhoto2: Yup.string().required("Додайте фото"),
+    startPhoto3: Yup.string().required("Додайте фото"),
+    startPhoto4: Yup.string().required("Додайте фото"),
+    startPhoto5: Yup.string().required("Додайте фото"),
+    startPhoto6: Yup.string().required("Додайте фото"),
   });
 };
 export default validate;
-// showId: null,
-// sexId: null,
-
-// startPhoto1: null,
-// startPhoto2: null,
-// startPhoto3: null,
-// startPhoto4: null,
-// startPhoto5: null,
-// startPhoto6: null,
-// classId: null,
-// date: new Date(),
