@@ -9,7 +9,7 @@ import showService from "../services/show.service";
 export const getShowList = () => async (dispatch) => {
   try {
     const { data } = await showService.get_list_Show();
-    //console.log("prod", data);
+    console.log("order", data);
     dispatch({
       type: LIST_SHOW,
       payload: data,
@@ -20,6 +20,7 @@ export const getShowList = () => async (dispatch) => {
     return Promise.reject(data);
   }
 };
+
 export const getShowSearch = (model) => async (dispatch) => {
   try {
     console.log("model", model);

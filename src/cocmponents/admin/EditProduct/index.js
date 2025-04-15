@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Formik, Form } from "formik";
 import MyTextInput from "../../common/MyTextInput";
+import MyTextarea from "../../common/MyTextarea";
 import { useDispatch } from "react-redux";
 import validate from "../RegisterProduct/validation";
 import { useSelector } from "react-redux";
@@ -118,11 +119,12 @@ const EditProduct = () => {
                         id="price"
                         type="text" /> */}
 
-            <MyTextInput
+            <MyTextarea
               label="Опис"
               name="description"
               id="description"
-              type="text"
+              type="textarea"
+              rows="4"
             />
 
             {/* <MyTextInput

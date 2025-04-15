@@ -2,7 +2,8 @@ import http from "../http_common";
 
 class ShowService {
   get_list_Show() {
-    return http.get("ShowForecast/listShow");
+    return http.get("ShowForecast/list");
+    //console.log("hello", data);
   }
   // get_rahunok() {
   //   return http.get("api/product/getfile");

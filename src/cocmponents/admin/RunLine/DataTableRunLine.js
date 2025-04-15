@@ -46,42 +46,42 @@ const RunLinePage = () => {
     }
   }, []);
 
-  const hideDeleteDialog = () => {
-    setDeleteDialog(false);
-  };
+  // const hideDeleteDialog = () => {
+  //   setDeleteDialog(false);
+  // };
 
   const editProduct = (product) => {
     console.log("edit", product);
     dispatch(push(`/admin/EditRun?id=${product.id}`));
   };
 
-  const confirmDelete = (runLine) => {
-    //console.log("del******", runLine.description);
-    //const Productdel=product.id;
-    //console.log("Server is bad register from", Productdel);
-    setRunLine(runLine);
-    setDeleteDialog(true);
-  };
+  // const confirmDelete = (runLine) => {
+  //   //console.log("del******", runLine.description);
+  //   //const Productdel=product.id;
+  //   //console.log("Server is bad register from", Productdel);
+  //   setRunLine(runLine);
+  //   setDeleteDialog(true);
+  // };
 
-  const deleteUser = (runLine) => {
-    console.log("del+++++++", runLine.description);
-    runlineService
-      .del_RunLine({ runLine })
-      .then((result) => {
-        //console.log("del+++++++");
-        setDeleteDialog(false);
-        setRunLine(empty);
-        toast.current.show({
-          severity: "success",
-          summary: "Successful",
-          detail: "runLine видалено",
-          life: 2000,
-        });
-      })
-      .catch((error) => {
-        console.log(error.response);
-      });
-  };
+  // const deleteUser = (runLine) => {
+  //   console.log("del+++++++", runLine.description);
+  //   runlineService
+  //     .del_RunLine({ runLine })
+  //     .then((result) => {
+  //       //console.log("del+++++++");
+  //       setDeleteDialog(false);
+  //       setRunLine(empty);
+  //       toast.current.show({
+  //         severity: "success",
+  //         summary: "Successful",
+  //         detail: "runLine видалено",
+  //         life: 2000,
+  //       });
+  //     })
+  //     .catch((error) => {
+  //       console.log(error.response);
+  //     });
+  // };
 
   const actionBodyTemplate = (rowData) => {
     return (
@@ -91,68 +91,68 @@ const RunLinePage = () => {
           className="p-button-rounded p-button-success mr-2"
           onClick={() => editProduct(rowData)}
         />
-        <Button
+        {/* <Button
           icon="pi pi-trash"
           className="p-button-rounded p-button-warning"
           onClick={() => confirmDelete(rowData)}
-        />
+        /> */}
       </React.Fragment>
     );
   };
 
-  const header = (
-    <div className="table-header">
-      <h5 className="mx-0 my-1">Панель керування runLine</h5>
-      <span className="p-input-icon-left">
-        <i className="pi pi-search" />
-        <InputText
-          type="search"
-          onInput={(e) => setGlobalFilter(e.target.value)}
-          placeholder="Пошук..."
-        />
-      </span>
-    </div>
-  );
+  // const header = (
+  //   <div className="table-header">
+  //     <h5 className="mx-0 my-1">Панель керування runLine</h5>
+  //     {/* <span className="p-input-icon-left">
+  //       <i className="pi pi-search" />
+  //       <InputText
+  //         type="search"
+  //         onInput={(e) => setGlobalFilter(e.target.value)}
+  //         placeholder="Пошук..."
+  //       />
+  //     </span> */}
+  //   </div>
+  // );
 
-  const deleteProductDialogFooter = (
-    <React.Fragment>
-      <Button
-        label="Так"
-        icon="pi pi-times"
-        className="p-button-text"
-        onClick={() => deleteUser(runLine)}
-      />
-      <Button
-        label="Ні"
-        icon="pi pi-check"
-        className="p-button-text"
-        onClick={hideDeleteDialog}
-      />
-    </React.Fragment>
-  );
-  const openNewRunLine = () => {
-    dispatch(push("/admin/RunLine"));
-  };
+  // const deleteProductDialogFooter = (
+  //   <React.Fragment>
+  //     <Button
+  //       label="Так"
+  //       icon="pi pi-times"
+  //       className="p-button-text"
+  //       onClick={() => deleteUser(runLine)}
+  //     />
+  //     <Button
+  //       label="Ні"
+  //       icon="pi pi-check"
+  //       className="p-button-text"
+  //       onClick={hideDeleteDialog}
+  //     />
+  //   </React.Fragment>
+  // );
+  // const openNewRunLine = () => {
+  //   dispatch(push("/admin/RunLine"));
+  // };
 
-  const leftToolbarTemplate = () => {
-    return (
-      <div className="toolbarLeft">
-        <Button
-          label="Бігуща строка"
-          icon="pi pi-plus"
-          className="p-button-success mr-2"
-          onClick={openNewRunLine}
-        />
-      </div>
-    );
-  };
+  // const leftToolbarTemplate = () => {
+  //   return (
+  //     <div className="toolbarLeft">
+  //       <Button
+  //         label="Бігуща строка"
+  //         icon="pi pi-plus"
+  //         className="p-button-success mr-2"
+  //         onClick={openNewRunLine}
+  //       />
+  //     </div>
+  //   );
+  // };
 
   return (
     <div className="datatable-crud-demo">
       <Toast ref={toast} />
 
       <div className="card">
-        <Toolbar className="mb-4" left={leftToolbarTemplate}></Toolbar>
+        {/* <Toolbar className="mb-4" left={leftToolbarTemplate}></Toolbar> */}
 
         <DataTable
           ref={dt}
@@ -160,18 +160,18 @@ const RunLinePage = () => {
           selection={selected}
           onSelectionChange={(e) => setSelected(e.value)}
           dataKey="id"
-          paginator
-          rows={10}
-          rowsPerPageOptions={[5, 10, 25]}
-          paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
-          currentPageReportTemplate="Відображено з {first} по {last} всього {totalRecords} користувачів"
-          globalFilter={globalFilter}
-          header={header}
-          responsiveLayout="scroll"
+          // paginator
+          // rows={10}
+          // rowsPerPageOptions={[5, 10, 25]}
+          // paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
+          // currentPageReportTemplate="Відображено з {first} по {last} всього {totalRecords} користувачів"
+          // globalFilter={globalFilter}
+          // header={header}
+          // responsiveLayout="scroll"
         >
           <Column
             field="description"
-            header="Text"
+            header="Панель керування runLine"
             style={{ minWidth: "8rem" }}
           ></Column>
 
@@ -183,7 +183,7 @@ const RunLinePage = () => {
         </DataTable>
       </div>
 
-      <Dialog
+      {/* <Dialog
         visible={deleteDialog}
         style={{ width: "450px" }}
         header="Видаленя runLine"
@@ -202,7 +202,7 @@ const RunLinePage = () => {
             </span>
           )}
         </div>
-      </Dialog>
+      </Dialog> */}
     </div>
   );
 };
