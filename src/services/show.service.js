@@ -42,8 +42,8 @@ class ShowService {
   //   }
 
   del_Show(data) {
-    //console.log("service", data.product.id);
-    return http.post("ShowForecast/deleteShowItem", data.product.id);
+    console.log("service", data.show.id);
+    return http.post("ShowForecast/delete", data.show.id);
   }
 }
 

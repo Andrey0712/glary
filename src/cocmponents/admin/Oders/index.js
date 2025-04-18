@@ -17,6 +17,9 @@ import OderItemsPage from "./orderItems";
 import { setNestedObjectValues } from "formik";
 import { RadioButton } from "primereact/radiobutton";
 import { Tag } from "primereact/tag";
+import { urlBackend } from "../../../http_common";
+import { Image } from "primereact/image";
+import showService from "../../../services/show.service";
 
 const OdersPage = () => {
   let empty = {
@@ -61,7 +64,11 @@ const OdersPage = () => {
   const { list } = useSelector((state) => state.show);
   const history = useHistory();
   const [visible, setVisible] = useState(false);
-  const [layout, setLayout] = useState("grid");
+  //const [layout, setLayout] = useState("grid");
+  const [expandedRows, setExpandedRows] = useState(null);
+  // const [products, setProducts] = useState([]);
+  const [deleteProductDialog, setDeleteProductDialog] = useState(false);
+  //const [product, setProduct] = useState(emptyProduct);
 
   useEffect(() => {
     try {
@@ -117,6 +124,52 @@ const OdersPage = () => {
       console.log("Server is bad ", error);
     }
   };
+  const hideDeleteProductDialog = () => {
+    setDeleteProductDialog(false);
+  };
+  const confirmDeleteProduct = (show) => {
+    const Productdel = show.id;
+    console.log("Server is bad register from", Productdel);
+    setshow(show);
+    setDeleteProductDialog(true);
+  };
+  const deleteProduct = (show) => {
+    console.log("del", show.id);
+    //dispatch({type: DELL_PRODUCTS});
+    showService
+      .del_Show({ show })
+
+      .then((result) => {
+        console.log("del+++++++");
+        setDeleteProductDialog(false);
+        setshow(empty);
+        toast.current.show({
+          severity: "success",
+          summary: "Successful",
+          detail: "Продукт видалено",
+          life: 2000,
+        });
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+  };
+  const deleteProductDialogFooter = (
+    <React.Fragment>
+      <Button
+        label="Так"
+        icon="pi pi-times"
+        className="p-button-text"
+        onClick={() => deleteProduct(show)}
+      />
+      <Button
+        label="Ні"
+        icon="pi pi-check"
+        className="p-button-text"
+        onClick={hideDeleteProductDialog}
+      />
+    </React.Fragment>
+  );
 
   const listItems = (list) => {
     console.log("listItems", list.id);
@@ -134,7 +187,7 @@ const OdersPage = () => {
           onClick={() => statusCheck(rowData)}
         />
         <Button
-          icon="pi pi-trash"
+          icon="pi pi-exclamation-triangle"
           className="p-button-rounded p-button-danger"
           onClick={() => statusTrash(rowData)}
         />
@@ -146,9 +199,14 @@ const OdersPage = () => {
     return (
       <React.Fragment>
         <Button
-          icon="pi pi-shopping-cart"
+          icon="pi pi-file-pdf"
           className="p-button-rounded p-button-help"
           onClick={() => listItems(rowData)}
+        />
+        <Button
+          icon="pi pi-trash"
+          className="p-button-rounded p-button-secondary"
+          onClick={() => confirmDeleteProduct(rowData)}
         />
       </React.Fragment>
     );
@@ -186,6 +244,7 @@ const OdersPage = () => {
   const header = (
     <div className="table-header">
       <h5 className="mx-0 my-1">Панель керування заявками</h5>
+
       <span className="p-input-icon-left">
         <i className="pi pi-search" />
         <InputText
@@ -194,6 +253,18 @@ const OdersPage = () => {
           placeholder="Пошук..."
         />
       </span>
+      <Button
+        label="CAC"
+        className="p-button-warning"
+        severity="warning"
+        outlined
+      />
+      <Button
+        label="CACIB"
+        className="p-button-help"
+        severity="help"
+        outlined
+      />
       <Button
         type="button"
         icon="pi pi-file-excel"
@@ -227,6 +298,108 @@ const OdersPage = () => {
     }
   };
 
+  // const imageBodyTemplate = (rowData) => {
+  //   console.log("foto", rowData);
+  //   return (
+  //     <img
+  //       src={`${urlBackend}` + rowData.startPhoto1}
+  //       //src={`http://localhost:5000` + rowData.image}
+  //       onError={(e) =>
+  //         (e.target.src =
+  //           "https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png")
+  //       }
+  //       alt={rowData.image}
+  //       className="product-image"
+  //     />
+  //   );
+  // };
+  const allowExpansion = (data) => {
+    //console.log("rowData", rowData);
+    return data.length > 0;
+  };
+  const rowExpansionTemplate = (data) => {
+    console.log("data111", data.id);
+    return (
+      <div className="p-3">
+        {/* <h5>
+          Фото для заяки {data.nameDog}, дата подання {data.dateCreate}
+        </h5> */}
+        <h5>Дата подання {data.dateCreate}</h5>
+        <Image
+          src={`${urlBackend}` + data.startPhoto1}
+          alt="Image"
+          preview
+          width="100"
+          onError={(e) =>
+            (e.target.src =
+              "https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png")
+          }
+          // alt={data.image}
+          // className="product-image"
+        />
+        <Image
+          src={`${urlBackend}` + data.startPhoto2}
+          alt="Image"
+          width="100"
+          preview
+          onError={(e) =>
+            (e.target.src =
+              "https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png")
+          }
+          // alt={data.image}
+          // className="product-image"
+        />
+        <Image
+          src={`${urlBackend}` + data.startPhoto3}
+          alt="Image"
+          width="100"
+          preview
+          onError={(e) =>
+            (e.target.src =
+              "https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png")
+          }
+          // alt={data.image}
+          // className="product-image"
+        />
+        <Image
+          src={`${urlBackend}` + data.startPhoto4}
+          alt="Image"
+          width="100"
+          preview
+          onError={(e) =>
+            (e.target.src =
+              "https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png")
+          }
+          // alt={data.image}
+          // className="product-image"
+        />
+        <Image
+          src={`${urlBackend}` + data.startPhoto5}
+          alt="Image"
+          width="100"
+          preview
+          onError={(e) =>
+            (e.target.src =
+              "https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png")
+          }
+          // alt={data.image}
+          // className="product-image"
+        />
+        <Image
+          src={`${urlBackend}` + data.startPhoto6}
+          alt="Image"
+          width="100"
+          preview
+          onError={(e) =>
+            (e.target.src =
+              "https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png")
+          }
+          // alt={data.image}
+          // className="product-image"
+        />
+      </div>
+    );
+  };
   return (
     <>
       <Dialog
@@ -240,11 +413,30 @@ const OdersPage = () => {
         {/* <h5 className="mx-0 my-1">Панель керування замовленями</h5> */}
         <OderItemsPage />
       </Dialog>
-
+      <Dialog
+        visible={deleteProductDialog}
+        style={{ width: "450px" }}
+        header="Видаленя заявки"
+        modal
+        footer={deleteProductDialogFooter}
+        onHide={hideDeleteProductDialog}
+      >
+        <div className="confirmation-content">
+          <i
+            className="pi pi-exclamation-triangle mr-3"
+            style={{ fontSize: "2rem" }}
+          />
+          {show && (
+            <span>
+              Ви впевнені, що хочети видалити заявку № <b>{show.id}</b>?
+            </span>
+          )}
+        </div>
+      </Dialog>
+      ;
       {/* <Dialog visible={visible} onHide={setVisible(false)} breakpoints={{'960px': '75vw', '640px': '100vw'}} style={{width: '50vw'}}>
             <OderItemsPage />
 </Dialog> */}
-
       <div className="datatable-crud-demo">
         <Toast ref={toast} />
 
@@ -263,117 +455,112 @@ const OdersPage = () => {
             globalFilter={globalFilter}
             header={header}
             responsiveLayout="scroll"
+            expandedRows={expandedRows}
+            onRowToggle={(e) => setExpandedRows(e.data)}
+            rowExpansionTemplate={rowExpansionTemplate}
           >
-            {/* <div className="card"> */}
-
+            <Column expander={allowExpansion} style={{ width: "1rem" }} />
             <Column
               field="id"
               header="id"
-              style={{ minWidth: "2rem" }}
+              style={{ minWidth: "1rem" }}
             ></Column>
             <Column
               field="classIdEntity"
               header="Клас"
               sortable
-              style={{ minWidth: "3rem" }}
+              style={{ minWidth: "2rem" }}
             ></Column>
             <Column
               field="breed"
               header="Порода"
               sortable
-              style={{ minWidth: "3rem" }}
+              style={{ minWidth: "2rem" }}
             ></Column>
             <Column
               field="color"
               header="Окрас"
               sortable
-              style={{ minWidth: "3rem" }}
+              style={{ minWidth: "2rem" }}
             ></Column>
             <Column
               field="nameDog"
               header="Кличка"
               sortable
-              style={{ minWidth: "3rem" }}
+              style={{ minWidth: "2rem" }}
             ></Column>
             <Column
               field="sexEntity"
               header="Стать"
               sortable
-              style={{ minWidth: "3rem" }}
+              style={{ minWidth: "1rem" }}
             ></Column>
             <Column
               field="date"
               header="Дата народженя"
               sortable
-              style={{ minWidth: "3rem" }}
+              style={{ minWidth: "1rem" }}
             ></Column>
             <Column
               field="pedigree"
               header="№ родоводу"
-              style={{ minWidth: "3rem" }}
+              style={{ minWidth: "2rem" }}
             ></Column>
             <Column
               field="chip"
               header="№ тату/чіп"
-              style={{ minWidth: "3rem" }}
+              style={{ minWidth: "2rem" }}
             ></Column>
-
             <Column
               field="father"
               header="Батько"
-              style={{ minWidth: "3rem" }}
+              style={{ minWidth: "2rem" }}
             ></Column>
             <Column
               field="mather"
               header="Мати"
-              style={{ minWidth: "3rem" }}
+              style={{ minWidth: "2rem" }}
             ></Column>
             <Column
               field="breeder"
               header="Заводчик"
-              style={{ minWidth: "3rem" }}
+              style={{ minWidth: "2rem" }}
             ></Column>
             <Column
               field="owner"
               header="Власник"
-              style={{ minWidth: "3rem" }}
+              style={{ minWidth: "2rem" }}
             ></Column>
             <Column
               field="adress"
               header="Адреса"
-              style={{ minWidth: "3rem" }}
+              style={{ minWidth: "2rem" }}
             ></Column>
             <Column
               field="phone"
               header="Телефон"
-              style={{ minWidth: "3rem" }}
+              style={{ minWidth: "2rem" }}
             ></Column>
             <Column
               field="email"
               header="E-mail"
-              style={{ minWidth: "3rem" }}
-            ></Column>
-            <Column
-              field="dateCreate"
-              header="Дата реєстрации"
-              sortable
-              style={{ minWidth: "3rem" }}
+              style={{ minWidth: "2rem" }}
             ></Column>
             <Column
               field="validateShowEntity"
               header="Статус заявки"
               body={statusBodyTemplate}
               sortable
-              style={{ minWidth: "3rem" }}
+              style={{ minWidth: "1rem" }}
             ></Column>
             <Column
               header="Зміна статусу заявки"
               body={actionBodyTemplate}
               exportable={false}
-              style={{ minWidth: "2rem" }}
+              style={{ minWidth: "1rem" }}
             ></Column>
             <Column
-              header="PDF"
+              header="PDF/DEL"
               body={actionBodyOdersItem}
               exportable={false}
               style={{ minWidth: "1rem" }}
