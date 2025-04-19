@@ -10,6 +10,8 @@ const EditProduct = React.lazy(() =>
 );
 const EditRun = React.lazy(() => import("../cocmponents/admin/EditRun"));
 const OdersPage = React.lazy(() => import("../cocmponents/admin/Oders"));
+const CactPage = React.lazy(() => import("../cocmponents/admin/Oders/cac"));
+const CacibPage = React.lazy(() => import("../cocmponents/admin/Oders/cacib"));
 const RunLine = React.lazy(() => import("../cocmponents/admin/RunLine"));
 const RunLinePage = React.lazy(() =>
   import("../cocmponents/admin/RunLine/DataTableRunLine")
@@ -42,6 +44,18 @@ const adminRoutes = [
     exact: true,
     name: "Перелік замовлень",
     component: OderItemsPage,
+  },
+  {
+    path: "/admin/Oders/cac",
+    exact: true,
+    name: "Перелік заявок CAC",
+    component: CactPage,
+  },
+  {
+    path: "/admin/Oders/cacib",
+    exact: true,
+    name: "Перелік заявок CACIB",
+    component: CacibPage,
   },
   {
     path: "/admin/userlist",

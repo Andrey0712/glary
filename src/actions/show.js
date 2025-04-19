@@ -1,6 +1,8 @@
 import {
   REGISTER_SHOW,
   LIST_SHOW,
+  LIST_CAC,
+  LIST_CACIB,
   UPDATE_SHOW,
   DELL_ITEM_SHOW,
 } from "../constants/actionTypes";
@@ -12,6 +14,35 @@ export const getShowList = () => async (dispatch) => {
     console.log("order", data);
     dispatch({
       type: LIST_SHOW,
+      payload: data,
+    });
+    return Promise.resolve();
+  } catch (err) {
+    const { data } = err.response;
+    return Promise.reject(data);
+  }
+};
+
+export const getShowListCact = () => async (dispatch) => {
+  try {
+    const { data } = await showService.get_list_Show_Cact();
+    console.log("order", data);
+    dispatch({
+      type: LIST_CAC,
+      payload: data,
+    });
+    return Promise.resolve();
+  } catch (err) {
+    const { data } = err.response;
+    return Promise.reject(data);
+  }
+};
+export const getShowListCacib = () => async (dispatch) => {
+  try {
+    const { data } = await showService.get_list_Show_Cacib();
+    console.log("order", data);
+    dispatch({
+      type: LIST_CACIB,
       payload: data,
     });
     return Promise.resolve();

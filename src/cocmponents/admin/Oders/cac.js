@@ -9,7 +9,7 @@ import { InputText } from "primereact/inputtext";
 import "./DataTableOder.css";
 import { push } from "connected-react-router";
 import { chack_status, getOrders, list_Items } from "../../../actions/orders";
-import { getShowList } from "../../../actions/show";
+import { getShowListCact } from "../../../actions/show";
 import ordersService from "../../../services/orders.service";
 import { useHistory } from "react-router-dom";
 import { DataView, DataViewLayoutOptions } from "primereact/dataview";
@@ -21,19 +21,13 @@ import { urlBackend } from "../../../http_common";
 import { Image } from "primereact/image";
 import showService from "../../../services/show.service";
 
-const OdersPage = () => {
+const CactPage = () => {
   let empty = {
     id: "",
     showIdEntity: "",
     sexEntity: "",
     nameDog: "",
     color: "",
-    startPhoto1: null,
-    startPhoto2: null,
-    startPhoto3: null,
-    startPhoto4: null,
-    startPhoto5: null,
-    startPhoto6: null,
     breed: "",
     classIdEntity: "",
     date: "",
@@ -46,14 +40,9 @@ const OdersPage = () => {
     breeder: "",
     phone: "",
     email: "",
-    dateCreate: "",
-    validateShowEntity: "",
   };
-  //   const options = [
-  //     { value: 1, label: "CAC-UA Червона калина" },
-  //     { value: 2, label: "CACIB-FCI Бурштиновий кубок" },
-  //   ];
-  const [show, setshow] = useState(empty);
+
+  const [cac, setcac] = useState(empty);
 
   const [selected, setSelected] = useState(null);
   const [globalFilter, setGlobalFilter] = useState(null);
@@ -61,18 +50,15 @@ const OdersPage = () => {
   const dt = useRef(null);
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
-  const { list } = useSelector((state) => state.show);
+  const { list } = useSelector((state) => state.cac);
   const history = useHistory();
   const [visible, setVisible] = useState(false);
-  //const [layout, setLayout] = useState("grid");
   const [expandedRows, setExpandedRows] = useState(null);
-  // const [products, setProducts] = useState([]);
   const [deleteProductDialog, setDeleteProductDialog] = useState(false);
-  //const [product, setProduct] = useState(emptyProduct);
 
   useEffect(() => {
     try {
-      dispatch(getShowList())
+      dispatch(getShowListCact())
         .then(() => {
           setLoading(false);
         })
@@ -85,91 +71,91 @@ const OdersPage = () => {
     }
   }, []);
 
-  const statusCheck = (status) => {
-    console.log("statusCheck", status);
-    try {
-      var dataStatus = {
-        Id: status.id,
-        StatusId: 2,
-      };
-      console.log("data", dataStatus);
-      dispatch(chack_status(dataStatus))
-        .then(() => {
-          //setVisible(true);
-          //console.log("statusCheck!");
-          history.push("/admin/oderlist");
-        })
-        .catch((ex) => {});
-    } catch (error) {
-      console.log("Server is bad ", error);
-    }
-  };
+  // const statusCheck = (status) => {
+  //   console.log("statusCheck", status);
+  //   try {
+  //     var dataStatus = {
+  //       Id: status.id,
+  //       StatusId: 2,
+  //     };
+  //     console.log("data", dataStatus);
+  //     dispatch(chack_status(dataStatus))
+  //       .then(() => {
+  //         //setVisible(true);
+  //         //console.log("statusCheck!");
+  //         history.push("/admin/oderlist");
+  //       })
+  //       .catch((ex) => {});
+  //   } catch (error) {
+  //     console.log("Server is bad ", error);
+  //   }
+  // };
 
-  const statusTrash = (status) => {
-    console.log("statusTrash", status);
-    try {
-      var dataStatus = {
-        Id: status.id,
-        StatusId: 3,
-      };
-      //console.log("data", dataStatus);
-      dispatch(chack_status(dataStatus))
-        .then(() => {
-          //setVisible(true);
-          console.log("statusTrash!");
-          history.push("/admin/oderlist");
-        })
-        .catch((ex) => {});
-    } catch (error) {
-      console.log("Server is bad ", error);
-    }
-  };
-  const hideDeleteProductDialog = () => {
-    setDeleteProductDialog(false);
-  };
-  const confirmDeleteProduct = (show) => {
-    const Productdel = show.id;
-    //console.log("Server is bad register from", Productdel);
-    setshow(show);
-    setDeleteProductDialog(true);
-  };
-  const deleteProduct = (show) => {
-    //console.log("del", show.id);
-    //dispatch({type: DELL_PRODUCTS});
-    showService
-      .del_Show({ show })
+  // const statusTrash = (status) => {
+  //   console.log("statusTrash", status);
+  //   try {
+  //     var dataStatus = {
+  //       Id: status.id,
+  //       StatusId: 3,
+  //     };
+  //     //console.log("data", dataStatus);
+  //     dispatch(chack_status(dataStatus))
+  //       .then(() => {
+  //         //setVisible(true);
+  //         console.log("statusTrash!");
+  //         history.push("/admin/oderlist");
+  //       })
+  //       .catch((ex) => {});
+  //   } catch (error) {
+  //     console.log("Server is bad ", error);
+  //   }
+  // };
+  // const hideDeleteProductDialog = () => {
+  //   setDeleteProductDialog(false);
+  // };
+  // const confirmDeleteProduct = (show) => {
+  //   const Productdel = show.id;
+  //   //console.log("Server is bad register from", Productdel);
+  //   setshow(show);
+  //   setDeleteProductDialog(true);
+  // };
+  // const deleteProduct = (show) => {
+  //   //console.log("del", show.id);
+  //   //dispatch({type: DELL_PRODUCTS});
+  //   showService
+  //     .del_Show({ show })
 
-      .then((result) => {
-        //console.log("del+++++++");
-        setDeleteProductDialog(false);
-        setshow(empty);
-        toast.current.show({
-          severity: "success",
-          summary: "Successful",
-          detail: "Продукт видалено",
-          life: 4000,
-        });
-      })
-      .catch((error) => {
-        console.log(error.response);
-      });
-  };
-  const deleteProductDialogFooter = (
-    <React.Fragment>
-      <Button
-        label="Так"
-        icon="pi pi-times"
-        className="p-button-text"
-        onClick={() => deleteProduct(show)}
-      />
-      <Button
-        label="Ні"
-        icon="pi pi-check"
-        className="p-button-text"
-        onClick={hideDeleteProductDialog}
-      />
-    </React.Fragment>
-  );
+  //     .then((result) => {
+  //       //console.log("del+++++++");
+  //       setDeleteProductDialog(false);
+  //       setshow(empty);
+  //       toast.current.show({
+  //         severity: "success",
+  //         summary: "Successful",
+  //         detail: "Продукт видалено",
+  //         life: 4000,
+  //       });
+  //     })
+  //     .catch((error) => {
+  //       console.log(error.response);
+  //     });
+  // };
+  // const deleteProductDialogFooter = (
+  //   <React.Fragment>
+  //     <Button
+  //       label="Так"
+  //       icon="pi pi-times"
+  //       className="p-button-text"
+  //       onClick={() => deleteProduct(show)}
+  //     />
+  //     <Button
+  //       label="Ні"
+  //       icon="pi pi-check"
+  //       className="p-button-text"
+  //       onClick={hideDeleteProductDialog}
+  //     />
+  //   </React.Fragment>
+  // );
 
   const listItems = (list) => {
     console.log("listItems", list.id);
@@ -178,35 +164,22 @@ const OdersPage = () => {
     setVisible(true);
   };
 
-  const Cac = () => {
-    console.log("listItems");
-    dispatch(push(`/admin/Oders/cac`));
-    //setState({visible:true});
-    setVisible(true);
-  };
-  const Cacib = () => {
-    console.log("listItems");
-    dispatch(push(`/admin/Oders/cacib`));
-    //setState({visible:true});
-    setVisible(true);
-  };
-
-  const actionBodyTemplate = (rowData) => {
-    return (
-      <React.Fragment>
-        <Button
-          icon="pi pi-check"
-          className="p-button-rounded p-button-success mr-2"
-          onClick={() => statusCheck(rowData)}
-        />
-        <Button
-          icon="pi pi-exclamation-triangle"
-          className="p-button-rounded p-button-danger"
-          onClick={() => statusTrash(rowData)}
-        />
-      </React.Fragment>
-    );
-  };
+  // const actionBodyTemplate = (rowData) => {
+  //   return (
+  //     <React.Fragment>
+  //       <Button
+  //         icon="pi pi-check"
+  //         className="p-button-rounded p-button-success mr-2"
+  //         onClick={() => statusCheck(rowData)}
+  //       />
+  //       <Button
+  //         icon="pi pi-exclamation-triangle"
+  //         className="p-button-rounded p-button-danger"
+  //         onClick={() => statusTrash(rowData)}
+  //       />
+  //     </React.Fragment>
+  //   );
+  // };
 
   const actionBodyOdersItem = (rowData) => {
     return (
@@ -216,11 +189,11 @@ const OdersPage = () => {
           className="p-button-rounded p-button-help"
           onClick={() => listItems(rowData)}
         />
-        <Button
+        {/* <Button
           icon="pi pi-trash"
           className="p-button-rounded p-button-secondary"
           onClick={() => confirmDeleteProduct(rowData)}
-        />
+        /> */}
       </React.Fragment>
     );
   };
@@ -256,7 +229,7 @@ const OdersPage = () => {
   };
   const header = (
     <div className="table-header">
-      <h5 className="mx-0 my-1">Панель керування заявками</h5>
+      <h5 className="mx-0 my-1">Панель керування заявками CAC-UA</h5>
 
       <span className="p-input-icon-left">
         <i className="pi pi-search" />
@@ -266,20 +239,18 @@ const OdersPage = () => {
           placeholder="Пошук..."
         />
       </span>
-      <Button
+      {/* <Button
         label="CAC"
         className="p-button-warning"
         severity="warning"
-        onClick={() => Cac()}
         outlined
       />
       <Button
         label="CACIB"
         className="p-button-help"
         severity="help"
-        onClick={() => Cacib()}
         outlined
-      />
+      /> */}
       <Button
         type="button"
         icon="pi pi-file-excel"
@@ -289,155 +260,30 @@ const OdersPage = () => {
       />
     </div>
   );
-  const statusBodyTemplate = (rowData) => {
-    return (
-      <Tag
-        value={rowData.validateShowEntity}
-        severity={getProductSeverity(rowData)}
-      ></Tag>
-    );
-  };
-  const getProductSeverity = (list) => {
-    switch (list.validateShowEntity) {
-      case "Погоджено":
-        return "success";
-
-      case "Нова заявка":
-        return "warning";
-
-      case "Відхилено":
-        return "danger";
-
-      default:
-        return null;
-    }
-  };
-
-  // const imageBodyTemplate = (rowData) => {
-  //   console.log("foto", rowData);
+  // const statusBodyTemplate = (rowData) => {
   //   return (
-  //     <img
-  //       src={`${urlBackend}` + rowData.startPhoto1}
-  //       //src={`http://localhost:5000` + rowData.image}
-  //       onError={(e) =>
-  //         (e.target.src =
-  //           "https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png")
-  //       }
-  //       alt={rowData.image}
-  //       className="product-image"
-  //     />
+  //     <Tag
+  //       value={rowData.validateShowEntity}
+  //       severity={getProductSeverity(rowData)}
+  //     ></Tag>
   //   );
   // };
-  const allowExpansion = (data) => {
-    //console.log("rowData", rowData);
-    return data.length > 0;
-  };
-  // const rowExpansionTemplate = (data) => {
-  //   //const data1 = JSON.stringify(data);
-  //   console.log("data1", data);
-  //   return (
-  //     <div className="p-3">
-  //       <h5>Orders for {data.dateCreate}</h5>
-  //       <DataTable value={data.}>
-  //         <Column field={data.id} header="Id" sortable></Column>
-  //         <Column field="father" header="father" sortable></Column>
-  //       </DataTable>
-  //     </div>
-  //   );
+  // const getProductSeverity = (list) => {
+  //   switch (list.validateShowEntity) {
+  //     case "Погоджено":
+  //       return "success";
+
+  //     case "Нова заявка":
+  //       return "warning";
+
+  //     case "Відхилено":
+  //       return "danger";
+
+  //     default:
+  //       return null;
+  //   }
   // };
-  const rowExpansionTemplate = (data) => {
-    //console.log("show111", show);
-    console.log("data111", data);
-    return (
-      <div className="p-3">
-        {/* <h5>
-          Фото для заяки {data.nameDog}, дата подання {data.dateCreate}
-        </h5> */}
-        <h5>
-          Заявка на " {data.showIdEntity} " . Дата подання {data.dateCreate} .{" "}
-        </h5>
-        <Image
-          src={`${urlBackend}` + data.startPhoto1}
-          alt="Image"
-          //target="_blank"
-          //downloadable
-          preview
-          width="100"
-          onError={(e) =>
-            (e.target.src =
-              "https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png")
-          }
-          // alt={data.image}
-          // className="product-image"
-        />
-        <Image
-          src={`${urlBackend}` + data.startPhoto2}
-          alt="Image"
-          width="100"
-          preview
-          //downloadable
-          //target="_blank"
-          onError={(e) =>
-            (e.target.src =
-              "https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png")
-          }
-          // alt={data.image}
-          // className="product-image"
-        />
-        <Image
-          src={`${urlBackend}` + data.startPhoto3}
-          alt="Image"
-          width="100"
-          //downloadable
-          preview
-          onError={(e) =>
-            (e.target.src =
-              "https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png")
-          }
-          // alt={data.image}
-          // className="product-image"
-        />
-        <Image
-          src={`${urlBackend}` + data.startPhoto4}
-          alt="Image"
-          width="100"
-          //downloadable
-          preview
-          onError={(e) =>
-            (e.target.src =
-              "https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png")
-          }
-          // alt={data.image}
-          // className="product-image"
-        />
-        <Image
-          src={`${urlBackend}` + data.startPhoto5}
-          alt="Image"
-          width="100"
-          //downloadable
-          preview
-          onError={(e) =>
-            (e.target.src =
-              "https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png")
-          }
-          // alt={data.image}
-          // className="product-image"
-        />
-        <Image
-          src={`${urlBackend}` + data.startPhoto6}
-          alt="Image"
-          width="100"
-          preview
-          onError={(e) =>
-            (e.target.src =
-              "https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png")
-          }
-          // alt={data.image}
-          // className="product-image"
-        />
-      </div>
-    );
-  };
+
   return (
     <>
       <Dialog
@@ -451,7 +297,7 @@ const OdersPage = () => {
         {/* <h5 className="mx-0 my-1">Панель керування замовленями</h5> */}
         <OderItemsPage />
       </Dialog>
-      <Dialog
+      {/* <Dialog
         visible={deleteProductDialog}
         style={{ width: "450px" }}
         header="Видаленя заявки"
@@ -471,7 +317,7 @@ const OdersPage = () => {
           )}
         </div>
       </Dialog>
-      ;
+      ; */}
       {/* <Dialog visible={visible} onHide={setVisible(false)} breakpoints={{'960px': '75vw', '640px': '100vw'}} style={{width: '50vw'}}>
             <OderItemsPage />
 </Dialog> */}
@@ -493,11 +339,11 @@ const OdersPage = () => {
             globalFilter={globalFilter}
             header={header}
             responsiveLayout="scroll"
-            expandedRows={expandedRows}
-            onRowToggle={(e) => setExpandedRows(e.data)}
-            rowExpansionTemplate={rowExpansionTemplate}
+            // expandedRows={expandedRows}
+            //onRowToggle={(e) => setExpandedRows(e.data)}
+            //rowExpansionTemplate={rowExpansionTemplate}
           >
-            <Column expander={allowExpansion} style={{ width: "1rem" }} />
+            {/* <Column expander={allowExpansion} style={{ width: "1rem" }} /> */}
             <Column
               field="id"
               header="id"
@@ -584,25 +430,25 @@ const OdersPage = () => {
               header="E-mail"
               style={{ minWidth: "2rem" }}
             ></Column>
-            <Column
+            {/* <Column
               field="validateShowEntity"
               header="Статус заявки"
               body={statusBodyTemplate}
               sortable
               style={{ minWidth: "1rem" }}
-            ></Column>
-            <Column
+            ></Column> */}
+            {/* <Column
               header="Зміна статусу заявки"
               body={actionBodyTemplate}
               exportable={false}
               style={{ minWidth: "1rem" }}
-            ></Column>
-            <Column
-              header="PDF/DEL"
+            ></Column> */}
+            {/* <Column
+              header="PDF"
               body={actionBodyOdersItem}
               exportable={false}
               style={{ minWidth: "1rem" }}
-            ></Column>
+            ></Column> */}
           </DataTable>
         </div>
       </div>
@@ -610,4 +456,4 @@ const OdersPage = () => {
   );
 };
 
-export default OdersPage;
+export default CactPage;

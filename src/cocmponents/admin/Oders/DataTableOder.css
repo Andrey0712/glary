@@ -26,6 +26,9 @@
   align-items: center;
   justify-content: center;
 }
+span.p-image.p-component.p-image-preview-container {
+  margin-left: 1rem;
+}
 @media screen and (max-width: 960px) {
   .datatable-crud-demo .p-toolbar {
     flex-wrap: wrap;

@@ -9,6 +9,8 @@ import cartReducer from "./reducers/cartReducer";
 import ordersReducer from "./reducers/oderReduser";
 import runLineReducer from "./reducers/runLineReducer";
 import showReducer from "./reducers/showReducer";
+import cacReducer from "./reducers/cacReducer";
+import cacibReducer from "./reducers/cacibReducer";
 
 const baseUrl = document.getElementsByTagName("base")[0].getAttribute("href");
 export const history = createBrowserHistory({ basename: baseUrl });
@@ -23,6 +25,8 @@ const rootReducer = combineReducers({
   order: ordersReducer,
   runLine: runLineReducer,
   show: showReducer,
+  cac: cacReducer,
+  cacib: cacibReducer,
   router: connectRouter(history),
 });
 

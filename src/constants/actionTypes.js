@@ -23,6 +23,8 @@ export const REGISTER_SHOW = "REGISTER_SHOW";
 export const LIST_SHOW = "LIST_SHOW";
 export const UPDATE_SHOW = "UPDATE_SHOW";
 export const DELL_ITEM_SHOW = "DELL_ITEM_SHOW";
+export const LIST_CAC = "LIST_CAC";
+export const LIST_CACIB = "LIST_CACIB";
 
 export const CART_ADD_PRODUCT = "CART_ADD_PRODUCT";
 export const CART_CLEAR = "CART_CLEAR";

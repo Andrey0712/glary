@@ -5,6 +5,14 @@ class ShowService {
     return http.get("ShowForecast/list");
     //console.log("hello", data);
   }
+  get_list_Show_Cact() {
+    return http.get("ShowForecast/lisShowCact");
+    //console.log("hello", data);
+  }
+  get_list_Show_Cacib() {
+    return http.get("ShowForecast/lisShowCacib");
+    //console.log("hello", data);
+  }
   // get_rahunok() {
   //   return http.get("api/product/getfile");
   // }

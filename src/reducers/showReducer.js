@@ -3,6 +3,7 @@ import {
   LIST_SHOW,
   UPDATE_SHOW,
   DELL_ITEM_SHOW,
+  // LIST_CAC,
 } from "../constants/actionTypes";
 
 const initialState = {
@@ -18,6 +19,12 @@ function showReducer(state = initialState, action) {
         list: payload,
       };
     }
+    // case LIST_CAC: {
+    //   return {
+    //     ...state,
+    //     list: payload,
+    //   };
+    // }
     case REGISTER_SHOW: {
       return {
         ...state,
