@@ -9,11 +9,13 @@ const NoMatch = React.lazy(() => import("../cocmponents/NoMatch"));
 const About = React.lazy(() => import("../cocmponents/about"));
 const News = React.lazy(() => import("../cocmponents/news"));
 const RegisterShow = React.lazy(() => import("../cocmponents/show"));
+const ProfilePage = React.lazy(() => import("../cocmponents/profile"));
 
 const defaultRoutes = [
   { path: "/noMatch", exact: true, component: NoMatch },
   { path: "/about", exact: true, component: About },
   { path: "/news", exact: true, component: News },
+
   {
     path: "/RegisterShow",
     exact: true,
@@ -28,6 +30,12 @@ const defaultRoutes = [
     exact: true,
     name: "Реєстрація",
     component: RegisterPage,
+  },
+  {
+    path: "/profile",
+    exact: true,
+    name: "Профаил",
+    component: ProfilePage,
   },
   //{ path: '/сheckOut', exact: true,name: 'Замовленя', component: CheckOut  }
 ];

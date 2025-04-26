@@ -38,7 +38,7 @@ const Header = () => {
     };
   }, []);
 
-  //console.log("Auth user info ", isAuth);
+  //console.log("Auth user info ", auth);
 
   return (
     <Navbar
@@ -87,7 +87,8 @@ const Header = () => {
           {!auth.isAuth ? (
             <Nav onClick={() => setNavExpanded(false)}>
               <Link className="nav-link" to="/login">
-                Вхід
+                <i className="pi pi-sign-in" style={{ fontSize: "1rem" }}></i>
+                {/* Вхід */}
               </Link>
               {/* <Link className="nav-link" to="/register">
                 Реєструватися
@@ -107,7 +108,8 @@ const Header = () => {
                 {auth.user.name}
               </Link>
               <Link className="nav-link" to="/logout" onClick={onClickLogout}>
-                Вихід
+                <i className="pi pi-sign-out" style={{ fontSize: "1rem" }}></i>
+                {/* Вихід */}
               </Link>
             </Nav>
           )}

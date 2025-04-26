@@ -59,7 +59,7 @@ const EditProduct = () => {
           console.log("edit complete--------------");
           //console.log("update ok");
           setLoading(false);
-          toast.warn("Продукт відредаговано", {
+          toast.warn("Новину відредаговано", {
             position: toast.POSITION.BOTTOM_RIGHT,
             autoClose: 3000,
           });

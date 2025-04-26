@@ -94,7 +94,7 @@ export const RegisterShowDog = (model) => async (dispatch) => {
   }
 };
 
-export const EditProd = (model) => async (dispatch) => {
+export const EditShowItem = (model) => async (dispatch) => {
   try {
     const result = await showService.editShow(model);
     console.log("result edit", result);

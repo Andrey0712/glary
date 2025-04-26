@@ -394,10 +394,12 @@ const LoginPage = () => {
               name="password"
               value={formik.values.password}
               onChange={formik.handleChange}
+              feedback={false}
+              tabIndex={1}
               toggleMask
-              className={classNames({
-                "p-invalid": isFormFieldValid("password"),
-              })}
+              // className={classNames({
+              //   "p-invalid": isFormFieldValid("password"),
+              // })}
               //header={passwordHeader}
               //footer={passwordFooter}
             />

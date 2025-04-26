@@ -187,7 +187,7 @@ const CactPage = () => {
         <Button
           icon="pi pi-file-pdf"
           className="p-button-rounded p-button-help"
-          onClick={() => listItems(rowData)}
+          //onClick={() => listItems(rowData)}
         />
         {/* <Button
           icon="pi pi-trash"
@@ -443,12 +443,12 @@ const CactPage = () => {
               exportable={false}
               style={{ minWidth: "1rem" }}
             ></Column> */}
-            {/* <Column
+            <Column
               header="PDF"
               body={actionBodyOdersItem}
               exportable={false}
               style={{ minWidth: "1rem" }}
-            ></Column> */}
+            ></Column>
           </DataTable>
         </div>
       </div>

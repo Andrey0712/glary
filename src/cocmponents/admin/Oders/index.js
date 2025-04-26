@@ -171,12 +171,12 @@ const OdersPage = () => {
     </React.Fragment>
   );
 
-  const listItems = (list) => {
-    console.log("listItems", list.id);
-    dispatch(push(`/admin/Oders/orderItems?id=${list.id}`));
-    //setState({visible:true});
-    setVisible(true);
-  };
+  // const listItems = (list) => {
+  //   console.log("listItems", list.id);
+  //   dispatch(push(`/admin/Oders/orderItems?id=${list.id}`));
+  //   //setState({visible:true});
+  //   setVisible(true);
+  // };
 
   const Cac = () => {
     console.log("listItems");
@@ -207,15 +207,24 @@ const OdersPage = () => {
       </React.Fragment>
     );
   };
-
+  const editShow = (show) => {
+    console.log("edit", show);
+    dispatch(push(`/admin/EditShow?id=${show.id}`));
+    setVisible(true);
+  };
   const actionBodyOdersItem = (rowData) => {
     return (
       <React.Fragment>
         <Button
+          icon="pi pi-pencil"
+          className="p-button-rounded p-button-help"
+          onClick={() => editShow(rowData)}
+        />
+        {/* <Button
           icon="pi pi-file-pdf"
           className="p-button-rounded p-button-help"
           onClick={() => listItems(rowData)}
-        />
+        /> */}
         <Button
           icon="pi pi-trash"
           className="p-button-rounded p-button-secondary"
@@ -347,7 +356,7 @@ const OdersPage = () => {
   // };
   const rowExpansionTemplate = (data) => {
     //console.log("show111", show);
-    console.log("data111", data);
+    //console.log("data111", data);
     return (
       <div className="p-3">
         {/* <h5>
@@ -471,7 +480,7 @@ const OdersPage = () => {
           )}
         </div>
       </Dialog>
-      ;
+
       {/* <Dialog visible={visible} onHide={setVisible(false)} breakpoints={{'960px': '75vw', '640px': '100vw'}} style={{width: '50vw'}}>
             <OderItemsPage />
 </Dialog> */}
@@ -598,7 +607,7 @@ const OdersPage = () => {
               style={{ minWidth: "1rem" }}
             ></Column>
             <Column
-              header="PDF/DEL"
+              header="EDIT/DEL"
               body={actionBodyOdersItem}
               exportable={false}
               style={{ minWidth: "1rem" }}

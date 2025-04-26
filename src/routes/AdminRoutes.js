@@ -1,6 +1,7 @@
 import React from "react";
 
 const UsersPage = React.lazy(() => import("../cocmponents/userlist"));
+
 const MainAdminPage = React.lazy(() => import("../cocmponents/admin"));
 const RegisterProduct = React.lazy(() =>
   import("../cocmponents/admin/RegisterProduct")
@@ -9,6 +10,7 @@ const EditProduct = React.lazy(() =>
   import("../cocmponents/admin/EditProduct")
 );
 const EditRun = React.lazy(() => import("../cocmponents/admin/EditRun"));
+const EditShow = React.lazy(() => import("../cocmponents/admin/EditShow"));
 const OdersPage = React.lazy(() => import("../cocmponents/admin/Oders"));
 const CactPage = React.lazy(() => import("../cocmponents/admin/Oders/cac"));
 const CacibPage = React.lazy(() => import("../cocmponents/admin/Oders/cacib"));
@@ -63,6 +65,7 @@ const adminRoutes = [
     name: "Користувачі",
     component: UsersPage,
   },
+
   {
     path: "/admin/RegisterProduct",
     exact: true,
@@ -80,6 +83,12 @@ const adminRoutes = [
     exact: true,
     name: "Редагувати товар",
     component: EditRun,
+  },
+  {
+    path: "/admin/EditShow",
+    exact: true,
+    name: "Редагувати товар",
+    component: EditShow,
   },
   { path: "/admin", exact: true, name: "Головна", component: MainAdminPage },
 ];

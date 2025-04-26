@@ -9,7 +9,8 @@ class UsersService {
     return http.post("api/account/delete", data.user.id);
   }
   edit(data) {
-    return http.post("api/account/edit", data, {
+    console.log("service", data);
+    return http.post("api/account/editProfile", data, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
