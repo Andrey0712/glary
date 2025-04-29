@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../actions/auth";
 import { push } from "connected-react-router";
 import { Navbar, Container, Nav } from "react-bootstrap";
-import logo from "../../../src/logoHeder.png";
+import logo from "../../images/logoHeder.png";
 import "./header.css";
 import LOGO from "../../images/CUU _Alians_ (1).svg";
 

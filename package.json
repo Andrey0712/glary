@@ -42,7 +42,8 @@
     "web-vitals": "^1.1.2",
     "xlsx": "^0.18.5",
     "yup": "^0.32.9",
-    "react-datepicker": "3.4.0"
+    "react-datepicker": "3.4.0",
+    "html2canvas": "^1.4.1"
   },
   "scripts": {
     "start": "react-scripts start",

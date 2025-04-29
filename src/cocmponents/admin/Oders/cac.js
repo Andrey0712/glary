@@ -187,7 +187,7 @@ const CactPage = () => {
         <Button
           icon="pi pi-file-pdf"
           className="p-button-rounded p-button-help"
-          //onClick={() => listItems(rowData)}
+          onClick={() => listItems(rowData)}
         />
         {/* <Button
           icon="pi pi-trash"
@@ -197,6 +197,7 @@ const CactPage = () => {
       </React.Fragment>
     );
   };
+  console.log("listCac", list);
   const exportExcel = () => {
     import("xlsx").then((xlsx) => {
       const worksheet = xlsx.utils.json_to_sheet(list);
