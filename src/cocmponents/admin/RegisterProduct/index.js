@@ -12,6 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { RegisterProd } from "../../../actions/RegisterProduct";
 import SelectInput from "../../common/MySelectField";
 import MyTextarea from "../../common/MyTextarea";
+// import { Editor } from "primereact/editor";
 toast.configure();
 
 const RegisterProduct = () => {
@@ -31,6 +32,7 @@ const RegisterProduct = () => {
   const titleRef = useRef();
   const [invalid, setInvalid] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [text, setText] = useState("");
 
   const onSubmitHandler = async (values) => {
     console.log("onSubmitHandler", values);
@@ -114,6 +116,14 @@ const RegisterProduct = () => {
                         name="price"
                         id="price"
                         type="text" /> */}
+
+            {/* <div className="card">
+              <Editor
+                value={text}
+                onTextChange={(e) => setText(e.htmlValue)}
+                style={{ height: "320px" }}
+              />
+            </div> */}
 
             <MyTextarea
               label="Опис"

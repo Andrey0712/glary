@@ -158,7 +158,7 @@ const OderItemsPage = () => {
   const oderId = url.searchParams.get("id");
 
   console.log("Id order prod:", oderId);
-  const { list } = useSelector((res) => res.cac);
+  const { list } = useSelector((res) => res.show);
   console.log("listItem:", list);
   const application = list.find((order) => order.id == oderId);
   //const orderProd = list.find((order) => order.id == oderId).item;
@@ -225,8 +225,9 @@ const OderItemsPage = () => {
             </div>
             {/* <span className="font-weight">{number_orderProd.id}</span> */}
             <h5>
-              13.07.2019 CAC -UA "Червона калина" монопородні виставки: КЧК
-              німецька вівчарка, лабрадор ретривер
+              {application.showIdEntity}
+              {/* 13.07.2019 CAC -UA "Червона калина" монопородні виставки: КЧК
+              німецька вівчарка, лабрадор ретривер */}
             </h5>
           </div>
           {/* 
@@ -357,7 +358,9 @@ const OderItemsPage = () => {
                 <td className="border p-0">E-mail</td>
                 <td className="border p-0 text-right ">{application.email}</td>
                 <td className="border p-0">Дата реєстрациї</td>
-                <td className="border p-0 text-right">{application.phone}</td>
+                <td className="border p-0 text-right">
+                  {application.dateCreate}
+                </td>
               </tr>
             </tbody>
           </table>

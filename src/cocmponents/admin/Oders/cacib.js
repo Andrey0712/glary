@@ -187,7 +187,7 @@ const CacibPage = () => {
         <Button
           icon="pi pi-file-pdf"
           className="p-button-rounded p-button-help"
-          //onClick={() => listItems(rowData)}
+          onClick={() => listItems(rowData)}
         />
         {/* <Button
           icon="pi pi-trash"
@@ -229,7 +229,7 @@ const CacibPage = () => {
   };
   const header = (
     <div className="table-header">
-      <h5 className="mx-0 my-1">Панель керування заявками CAC-UA</h5>
+      <h5 className="mx-0 my-1">Панель керування заявками CACIB-FCI</h5>
 
       <span className="p-input-icon-left">
         <i className="pi pi-search" />
@@ -260,29 +260,6 @@ const CacibPage = () => {
       />
     </div>
   );
-  // const statusBodyTemplate = (rowData) => {
-  //   return (
-  //     <Tag
-  //       value={rowData.validateShowEntity}
-  //       severity={getProductSeverity(rowData)}
-  //     ></Tag>
-  //   );
-  // };
-  // const getProductSeverity = (list) => {
-  //   switch (list.validateShowEntity) {
-  //     case "Погоджено":
-  //       return "success";
-
-  //     case "Нова заявка":
-  //       return "warning";
-
-  //     case "Відхилено":
-  //       return "danger";
-
-  //     default:
-  //       return null;
-  //   }
-  // };
 
   return (
     <>
@@ -430,19 +407,7 @@ const CacibPage = () => {
               header="E-mail"
               style={{ minWidth: "2rem" }}
             ></Column>
-            {/* <Column
-              field="validateShowEntity"
-              header="Статус заявки"
-              body={statusBodyTemplate}
-              sortable
-              style={{ minWidth: "1rem" }}
-            ></Column> */}
-            {/* <Column
-              header="Зміна статусу заявки"
-              body={actionBodyTemplate}
-              exportable={false}
-              style={{ minWidth: "1rem" }}
-            ></Column> */}
+
             <Column
               header="PDF"
               body={actionBodyOdersItem}

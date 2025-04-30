@@ -512,6 +512,11 @@ const OdersPage = () => {
               header="id"
               style={{ minWidth: "1rem" }}
             ></Column>
+            {/* <Column
+              field="showIdEntity"
+              header="Виставка"
+              style={{ minWidth: "1rem" }}
+            ></Column> */}
             <Column
               field="classIdEntity"
               header="Клас"

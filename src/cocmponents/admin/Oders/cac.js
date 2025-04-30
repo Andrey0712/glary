@@ -40,6 +40,7 @@ const CactPage = () => {
     breeder: "",
     phone: "",
     email: "",
+    dateCreate: "",
   };
 
   const [cac, setcac] = useState(empty);
@@ -431,19 +432,7 @@ const CactPage = () => {
               header="E-mail"
               style={{ minWidth: "2rem" }}
             ></Column>
-            {/* <Column
-              field="validateShowEntity"
-              header="Статус заявки"
-              body={statusBodyTemplate}
-              sortable
-              style={{ minWidth: "1rem" }}
-            ></Column> */}
-            {/* <Column
-              header="Зміна статусу заявки"
-              body={actionBodyTemplate}
-              exportable={false}
-              style={{ minWidth: "1rem" }}
-            ></Column> */}
+
             <Column
               header="PDF"
               body={actionBodyOdersItem}
