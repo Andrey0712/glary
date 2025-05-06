@@ -510,6 +510,7 @@ const OdersPage = () => {
             <Column
               field="id"
               header="id"
+              sortable
               style={{ minWidth: "1rem" }}
             ></Column>
             {/* <Column

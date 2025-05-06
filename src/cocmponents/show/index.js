@@ -22,6 +22,7 @@ import { MultiSelect } from "primereact/multiselect";
 import { RadioButton } from "primereact/radiobutton";
 import MyDatePicker from "../common/MyDatePicker";
 import MyTextarea from "../common/MyTextarea";
+
 toast.configure();
 
 const RegisterShow = () => {
@@ -328,6 +329,7 @@ const RegisterShow = () => {
                                     </div>
                                   </div>
                                 </div>
+
                                 <div className="col-md-12 mb-4 ">
                                   <MyTextInput
                                     label="Батько: кличка, № родоводу"

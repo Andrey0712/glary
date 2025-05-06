@@ -159,6 +159,7 @@ const CactPage = () => {
   // );
 
   const listItems = (list) => {
+    //e.preventDefault();
     console.log("listItems", list.id);
     dispatch(push(`/admin/Oders/orderItems?id=${list.id}`));
     //setState({visible:true});

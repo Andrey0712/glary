@@ -12,7 +12,9 @@ import "react-toastify/dist/ReactToastify.css";
 import { RegisterProd } from "../../../actions/RegisterProduct";
 import SelectInput from "../../common/MySelectField";
 import MyTextarea from "../../common/MyTextarea";
-// import { Editor } from "primereact/editor";
+import { Editor } from "@tinymce/tinymce-react";
+import { config } from "./config";
+
 toast.configure();
 
 const RegisterProduct = () => {
@@ -24,6 +26,14 @@ const RegisterProduct = () => {
     // price: null,
     // quantity: null,
     // rating: null,
+  };
+
+  const editorRef = useRef(null);
+  const log = (e) => {
+    e.preventDefault();
+    if (editorRef.current) {
+      console.log(editorRef.current.getContent());
+    }
   };
 
   const dispatch = useDispatch();
@@ -111,20 +121,6 @@ const RegisterProduct = () => {
 
             <MyPhotoInput refFormik={refFormik} field="startPhoto" />
 
-            {/* <MyTextInput
-                        label="Ціна"
-                        name="price"
-                        id="price"
-                        type="text" /> */}
-
-            {/* <div className="card">
-              <Editor
-                value={text}
-                onTextChange={(e) => setText(e.htmlValue)}
-                style={{ height: "320px" }}
-              />
-            </div> */}
-
             <MyTextarea
               label="Опис"
               name="description"
@@ -133,6 +129,15 @@ const RegisterProduct = () => {
               rows="5"
             />
 
+            <div>
+              <Editor
+                apiKey="lw5n4j0uyyr4ous3m69j1xz33a774ktmml656g1wtmnr2fau"
+                onInit={(_evt, editor) => (editorRef.current = editor)}
+                initialValue="<p>This is the initial content of the editor.</p>"
+                init={{ config }}
+              />
+              <button onClick={log}>Log editor content</button>
+            </div>
             {/* <MyTextInput
                         label="Категорія"
                         name="categoryId" 

@@ -16,6 +16,7 @@ const MyPhotoInput = ({ refFormik, field, image, label }) => {
     <div className="mb-3">
       <label htmlFor={field} className="form-label">
         {label}
+
         <img
           src={startPhoto}
           alt="no img"

@@ -158,18 +158,49 @@ const OderItemsPage = () => {
   const oderId = url.searchParams.get("id");
 
   console.log("Id order prod:", oderId);
-  const { list } = useSelector((res) => res.show);
+  const { list } = useSelector((res) => res.cac);
   console.log("listItem:", list);
   const application = list.find((order) => order.id == oderId);
   //const orderProd = list.find((order) => order.id == oderId).item;
-  //   const orderProd = [
-  //     list.map((element) => element.items.filter((item) => item.id !== oderId)),
-  //   ];
+  // //   const orderProd = [
+  // //     list.map((element) => element.items.filter((item) => item.id !== oderId)),
+  // //   ];
   const number_orderProd_id = application.id;
   console.log("number_orderProd:", application);
   //console.log("order:", orderProd);
   console.log("number_orderProd_id:", number_orderProd_id);
   const [loader, setLoader] = useState(false);
+
+  // var url = new URL(window.location.href);
+  // const showId = url.searchParams.get("id");
+
+  // console.log("Id current prod:", showId);
+  // const { list } = useSelector((res) => res.show);
+
+  // //find user for delete from id.
+  // const current = list.find((show) => show.id == showId);
+  // console.log("current:", current);
+
+  // const application = {
+  //   id: showId,
+  //   showIdEntity: current.showIdEntity,
+  //   sexEntity: current.sexEntity,
+  //   nameDog: current.nameDog,
+  //   color: current.color,
+  //   breed: current.breed,
+  //   classIdEntity: current.classIdEntity,
+  //   date: current.date,
+  //   pedigree: current.pedigree,
+  //   chip: current.chip,
+  //   father: current.father,
+  //   mather: current.mather,
+  //   adress: current.adress,
+  //   owner: current.owner,
+  //   breeder: current.breeder,
+  //   phone: current.phone,
+  //   email: current.email,
+  //   dateCreate: current.dateCreate,
+  // };
 
   const downloadPDF = () => {
     const capture = document.querySelector(".actual-receipt");
