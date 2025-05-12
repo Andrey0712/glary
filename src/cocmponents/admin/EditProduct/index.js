@@ -12,6 +12,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { EditProd } from "../../../actions/RegisterProduct";
 import { urlBackend } from "../../../http_common";
+import MyEditor from "../../common/MyEditor";
 
 toast.configure();
 
@@ -119,14 +120,22 @@ const EditProduct = () => {
                         id="price"
                         type="text" /> */}
 
-            <MyTextarea
+            {/* <MyTextarea
               label="Опис"
               name="description"
               id="description"
               type="textarea"
               rows="4"
+            /> */}
+            <MyEditor
+              refFormik={refFormik}
+              type="text"
+              label="Редактор новин"
+              field="description"
+              name="description"
+              id="description"
+              initialValue={initState.description}
             />
-
             {/* <MyTextInput
                         label="Категорія"
                         name="categoryId"

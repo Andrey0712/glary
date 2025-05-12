@@ -1,6 +1,6 @@
 export const config = {
+  selector: "textarea#basic-example",
   height: 500,
-  menubar: false,
   plugins: [
     "advlist",
     "autolink",
@@ -17,15 +17,14 @@ export const config = {
     "insertdatetime",
     "media",
     "table",
-    "code",
     "help",
     "wordcount",
   ],
   toolbar:
     "undo redo | blocks | " +
-    "bold italic forecolor | alignleft aligncenter " +
+    "bold italic backcolor | alignleft aligncenter " +
     "alignright alignjustify | bullist numlist outdent indent | " +
     "removeformat | help",
   content_style:
-    "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
+    "body { font-family:Helvetica,Arial,sans-serif; font-size:16px }",
 };

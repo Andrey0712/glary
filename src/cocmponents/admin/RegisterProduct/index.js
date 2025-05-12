@@ -12,8 +12,9 @@ import "react-toastify/dist/ReactToastify.css";
 import { RegisterProd } from "../../../actions/RegisterProduct";
 import SelectInput from "../../common/MySelectField";
 import MyTextarea from "../../common/MyTextarea";
-import { Editor } from "@tinymce/tinymce-react";
-import { config } from "./config";
+import MyEditor from "../../common/MyEditor";
+// import { Editor } from "@tinymce/tinymce-react";
+// import { config } from "../../common/config";
 
 toast.configure();
 
@@ -28,13 +29,13 @@ const RegisterProduct = () => {
     // rating: null,
   };
 
-  const editorRef = useRef(null);
-  const log = (e) => {
-    e.preventDefault();
-    if (editorRef.current) {
-      console.log(editorRef.current.getContent());
-    }
-  };
+  //const editorRef = useRef(null);
+  // const log = (e) => {
+  //   e.preventDefault();
+  //   if (editorRef.current) {
+  //     console.log(editorRef.current.getContent());
+  //   }
+  // };
 
   const dispatch = useDispatch();
   const { errors } = useSelector((state) => state.auth);
@@ -42,7 +43,13 @@ const RegisterProduct = () => {
   const titleRef = useRef();
   const [invalid, setInvalid] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [text, setText] = useState("");
+  //   const [text, setText] = useState("");
+  //   const initialValue = `
+  // <h2>Full-featured rich text editing experience</h2>
+  // <p>No matter what you're building, TinyMCE has got you covered.</p>
+  // `.trim();
+  //   const [data, setData] = React.useState(initialValue);
+  //   console.log("data", data);
 
   const onSubmitHandler = async (values) => {
     console.log("onSubmitHandler", values);
@@ -121,23 +128,38 @@ const RegisterProduct = () => {
 
             <MyPhotoInput refFormik={refFormik} field="startPhoto" />
 
-            <MyTextarea
+            {/* <MyTextarea
               label="Опис"
               name="description"
               id="description"
               type="textarea"
               rows="5"
-            />
+            /> */}
 
-            <div>
+            <MyEditor
+              refFormik={refFormik}
+              type="text"
+              label="Редактор новин"
+              field="description"
+              name="description"
+              id="description"
+              initialValue="<p>Введіть текст</p>"
+            />
+            {/* <textarea
+                style={{ width: "100%", height: "200px" }}
+                value={data}
+                onChange={(e) => setData(e.target.value)}
+              /> */}
+
+            {/* <div>
               <Editor
                 apiKey="lw5n4j0uyyr4ous3m69j1xz33a774ktmml656g1wtmnr2fau"
                 onInit={(_evt, editor) => (editorRef.current = editor)}
-                initialValue="<p>This is the initial content of the editor.</p>"
+                initialValue="<p>Введіть текст</p>"
                 init={{ config }}
               />
               <button onClick={log}>Log editor content</button>
-            </div>
+            </div> */}
             {/* <MyTextInput
                         label="Категорія"
                         name="categoryId" 

@@ -196,7 +196,12 @@ const News = () => {
                                     }
                                   </td>{" "}
                                   <div className="app-component-content">
-                                    <p>{item.description}</p>
+                                    <div
+                                      dangerouslySetInnerHTML={{
+                                        __html: item.description,
+                                      }}
+                                    />
+                                    {/* <p>{item.description}</p> */}
                                     <span className="dataCreate">
                                       {item.dateCreate}
                                     </span>
